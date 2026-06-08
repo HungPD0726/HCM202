@@ -10,7 +10,7 @@
       "Chỉ dùng trong ngoại giao"
     ],
     "answer": 0,
-    "explain": "Đại đoàn kết là chiến lược lâu dài, quyết định thắng lợi."
+    "explain": "Là vấn đề chiến lược quyết định thành công của cách mạng"
   },
   {
     "id": 502,
@@ -23,7 +23,7 @@
       "Chỉ người có chức vụ"
     ],
     "answer": 1,
-    "explain": "Chủ thể đại đoàn kết là toàn dân, mọi người Việt Nam yêu nước."
+    "explain": "Toàn thể nhân dân Việt Nam yêu nước"
   },
   {
     "id": 503,
@@ -36,7 +36,7 @@
       "Sự đối lập tôn giáo"
     ],
     "answer": 2,
-    "explain": "Liên minh công - nông - trí là nền tảng quan trọng của đại đoàn kết."
+    "explain": "Liên minh công nhân, nông dân và trí thức dưới sự lãnh đạo của Đảng"
   },
   {
     "id": 504,
@@ -49,7 +49,7 @@
       "Mặt trận dân tộc thống nhất"
     ],
     "answer": 3,
-    "explain": "Mặt trận dân tộc thống nhất là hình thức tổ chức của đại đoàn kết."
+    "explain": "Mặt trận dân tộc thống nhất"
   },
   {
     "id": 505,
@@ -62,7 +62,7 @@
       "Sự khác biệt để chia rẽ"
     ],
     "answer": 0,
-    "explain": "Đoàn kết phải đặt lợi ích dân tộc và nhân dân lên trên hết."
+    "explain": "Lợi ích tối cao của dân tộc và quyền lợi cơ bản của nhân dân"
   },
   {
     "id": 506,
@@ -75,7 +75,7 @@
       "Tách khỏi nhân dân"
     ],
     "answer": 1,
-    "explain": "Mặt trận cần sự lãnh đạo của Đảng và phương thức dân chủ, đồng thuận."
+    "explain": "Đặt dưới sự lãnh đạo của Đảng và hoạt động trên cơ sở hiệp thương dân chủ"
   },
   {
     "id": 507,
@@ -88,7 +88,7 @@
       "Phủ nhận lợi ích dân tộc"
     ],
     "answer": 2,
-    "explain": "Đoàn kết rộng rãi nhưng có nguyên tắc, chống chia rẽ."
+    "explain": "Đấu tranh chống chia rẽ, hẹp hòi, bè phái"
   },
   {
     "id": 508,
@@ -101,7 +101,7 @@
       "Sức mạnh, then chốt của thành công"
     ],
     "answer": 3,
-    "explain": "Người nhiều lần khẳng định đoàn kết là sức mạnh và then chốt thành công."
+    "explain": "Sức mạnh, then chốt của thành công"
   },
   {
     "id": 509,
@@ -114,7 +114,7 @@
       "Cạnh tranh chia rẽ nội bộ"
     ],
     "answer": 0,
-    "explain": "Sức mạnh dân tộc cần kết hợp với sức mạnh thời đại."
+    "explain": "Đoàn kết quốc tế"
   },
   {
     "id": 510,
@@ -127,7 +127,7 @@
       "Không cần bất kỳ lực lượng nào"
     ],
     "answer": 1,
-    "explain": "Đoàn kết quốc tế hướng tới các lực lượng cách mạng và tiến bộ trên thế giới."
+    "explain": "Phong trào cộng sản, công nhân quốc tế, phong trào giải phóng dân tộc và lực lượng tiến bộ"
   },
   {
     "id": 511,
@@ -140,7 +140,7 @@
       "Chỉ nhận giúp đỡ, không có trách nhiệm"
     ],
     "answer": 2,
-    "explain": "Đoàn kết quốc tế phải dựa trên độc lập tự chủ và tinh thần trong sáng."
+    "explain": "Độc lập, tự chủ, bình đẳng, hữu nghị và hợp tác"
   },
   {
     "id": 512,
@@ -153,7 +153,7 @@
       "Chủ nghĩa yêu nước, ý chí độc lập, đoàn kết và sức sáng tạo của nhân dân"
     ],
     "answer": 3,
-    "explain": "Sức mạnh dân tộc bắt nguồn từ truyền thống và lực lượng nhân dân."
+    "explain": "Chủ nghĩa yêu nước, ý chí độc lập, đoàn kết và sức sáng tạo của nhân dân"
   },
   {
     "id": 513,
@@ -166,7 +166,7 @@
       "Sự lạc hậu kỹ thuật"
     ],
     "answer": 0,
-    "explain": "Sức mạnh thời đại là các xu thế tiến bộ của thế giới mà cách mạng Việt Nam cần tranh thủ."
+    "explain": "Sức mạnh của xu thế cách mạng, hòa bình, độc lập dân tộc, dân chủ và tiến bộ xã hội"
   },
   {
     "id": 514,
@@ -179,7 +179,7 @@
       "Tách Việt Nam khỏi phong trào thế giới"
     ],
     "answer": 1,
-    "explain": "Sự kết hợp tạo nên sức mạnh tổng hợp."
+    "explain": "Tạo sức mạnh tổng hợp cho cách mạng Việt Nam"
   },
   {
     "id": 515,
@@ -192,7 +192,7 @@
       "Không cần mục tiêu chung"
     ],
     "answer": 2,
-    "explain": "Người nhấn mạnh nhân điểm tương đồng, hạn chế khác biệt để đoàn kết."
+    "explain": "Tìm điểm tương đồng, tôn trọng khác biệt không trái lợi ích chung"
   },
   {
     "id": 516,
@@ -205,7 +205,7 @@
       "Rộng rãi, lâu dài, bao gồm mọi người Việt Nam yêu nước trong và ngoài nước"
     ],
     "answer": 3,
-    "explain": "Đại đoàn kết là chiến lược rộng rãi, lâu dài của cách mạng."
+    "explain": "Rộng rãi, lâu dài, bao gồm mọi người Việt Nam yêu nước trong và ngoài nước"
   },
   {
     "id": 517,
@@ -218,7 +218,7 @@
       "Thay thế Mặt trận bằng mệnh lệnh"
     ],
     "answer": 0,
-    "explain": "Đảng lãnh đạo để khối đoàn kết có mục tiêu và tổ chức đúng đắn."
+    "explain": "Lãnh đạo, định hướng và tổ chức khối đoàn kết"
   },
   {
     "id": 518,
@@ -231,7 +231,7 @@
       "Tập hợp mọi người yêu nước"
     ],
     "answer": 1,
-    "explain": "Chia rẽ và kỳ thị trái với tinh thần đại đoàn kết."
+    "explain": "Phân biệt, chia rẽ dân tộc, tôn giáo, giai cấp"
   },
   {
     "id": 519,
@@ -244,7 +244,7 @@
       "Không quan tâm hòa bình thế giới"
     ],
     "answer": 2,
-    "explain": "Hồ Chí Minh kết hợp lợi ích dân tộc với nghĩa vụ quốc tế trong sáng."
+    "explain": "Bảo vệ độc lập dân tộc và đóng góp vào hòa bình, tiến bộ của nhân loại"
   },
   {
     "id": 520,
@@ -257,6 +257,6 @@
       "Phát huy đồng thuận xã hội, tôn trọng khác biệt, củng cố niềm tin của nhân dân"
     ],
     "answer": 3,
-    "explain": "Vận dụng tư tưởng đại đoàn kết giúp củng cố khối đại đoàn kết toàn dân trong điều kiện mới."
+    "explain": "Phát huy đồng thuận xã hội, tôn trọng khác biệt, củng cố niềm tin của nhân dân"
   }
 ]

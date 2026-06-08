@@ -10,7 +10,7 @@
       "Không liên quan đến đời sống"
     ],
     "answer": 0,
-    "explain": "Hồ Chí Minh xem chính trị, kinh tế, văn hóa, xã hội có quan hệ tác động lẫn nhau."
+    "explain": "Có quan hệ chặt chẽ, tác động qua lại"
   },
   {
     "id": 602,
@@ -23,7 +23,7 @@
       "Chỉ phục vụ thiểu số"
     ],
     "answer": 1,
-    "explain": "Hồ Chí Minh chủ trương xây dựng nền văn hóa dân tộc, khoa học, đại chúng."
+    "explain": "Dân tộc, khoa học, đại chúng"
   },
   {
     "id": 603,
@@ -36,7 +36,7 @@
       "Chỉ dành cho giới trí thức"
     ],
     "answer": 2,
-    "explain": "Văn hóa góp phần định hướng, giáo dục và thúc đẩy phát triển xã hội."
+    "explain": "Vừa là mục tiêu, vừa là động lực của cách mạng"
   },
   {
     "id": 604,
@@ -49,7 +49,7 @@
       "Là gốc của người cách mạng"
     ],
     "answer": 3,
-    "explain": "Người khẳng định đạo đức là gốc của người cách mạng."
+    "explain": "Là gốc của người cách mạng"
   },
   {
     "id": 605,
@@ -62,7 +62,7 @@
       "Chỉ phục vụ lợi ích riêng"
     ],
     "answer": 0,
-    "explain": "Đây là chuẩn mực bao trùm trong đạo đức cách mạng."
+    "explain": "Trung thành với Tổ quốc, tận tụy phục vụ nhân dân"
   },
   {
     "id": 606,
@@ -75,7 +75,7 @@
       "Phương pháp thống kê"
     ],
     "answer": 1,
-    "explain": "Đó là các phẩm chất đạo đức cơ bản Hồ Chí Minh yêu cầu cán bộ, đảng viên rèn luyện."
+    "explain": "Chuẩn mực đạo đức cách mạng"
   },
   {
     "id": 607,
@@ -88,7 +88,7 @@
       "Làm trái điều đã nói"
     ],
     "answer": 2,
-    "explain": "Hồ Chí Minh đặc biệt coi trọng nêu gương và thực hành đạo đức."
+    "explain": "Thống nhất lời nói với hành động, nêu gương bằng việc làm"
   },
   {
     "id": 608,
@@ -101,7 +101,7 @@
       "Xây dựng phẩm chất tốt đồng thời chống biểu hiện sai trái"
     ],
     "answer": 3,
-    "explain": "Rèn luyện đạo đức phải vừa bồi dưỡng cái tốt, vừa chống cái xấu."
+    "explain": "Xây dựng phẩm chất tốt đồng thời chống biểu hiện sai trái"
   },
   {
     "id": 609,
@@ -114,7 +114,7 @@
       "Vì chỉ cán bộ cấp cao mới cần đạo đức"
     ],
     "answer": 0,
-    "explain": "Tu dưỡng đạo đức là công việc thường xuyên, lâu dài."
+    "explain": "Vì đạo đức cách mạng phải được rèn luyện bền bỉ trong mọi hoàn cảnh"
   },
   {
     "id": 610,
@@ -127,7 +127,7 @@
       "Chỉ người có quyền lực"
     ],
     "answer": 1,
-    "explain": "Tình yêu thương con người của Hồ Chí Minh rộng lớn, gắn với giải phóng con người."
+    "explain": "Những người lao động, người bị áp bức và toàn thể nhân dân"
   },
   {
     "id": 611,
@@ -140,7 +140,7 @@
       "Chỉ quan tâm lợi ích cá nhân"
     ],
     "answer": 2,
-    "explain": "Tinh thần quốc tế trong sáng gắn với đoàn kết và tiến bộ nhân loại."
+    "explain": "Đoàn kết với các dân tộc và lực lượng tiến bộ vì hòa bình, độc lập, dân chủ"
   },
   {
     "id": 612,
@@ -153,7 +153,7 @@
       "Vừa là mục tiêu, vừa là động lực"
     ],
     "answer": 3,
-    "explain": "Con người là trung tâm trong tư tưởng Hồ Chí Minh."
+    "explain": "Vừa là mục tiêu, vừa là động lực"
   },
   {
     "id": 613,
@@ -166,7 +166,7 @@
       "Không cần giáo dục đạo đức"
     ],
     "answer": 0,
-    "explain": "Trồng người là chiến lược giáo dục, bồi dưỡng con người lâu dài."
+    "explain": "Giáo dục, bồi dưỡng con người, nhất là thế hệ trẻ"
   },
   {
     "id": 614,
@@ -179,7 +179,7 @@
       "Chỉ thành tích cá nhân"
     ],
     "answer": 1,
-    "explain": "Người coi trọng cả đạo đức và năng lực."
+    "explain": "Đức và tài"
   },
   {
     "id": 615,
@@ -192,7 +192,7 @@
       "Chỉ chú trọng nghi lễ"
     ],
     "answer": 2,
-    "explain": "Hồ Chí Minh quan tâm xây dựng đời sống mới trong sinh hoạt hằng ngày."
+    "explain": "Xây dựng lối sống mới, nếp sống mới, đời sống mới"
   },
   {
     "id": 616,
@@ -205,7 +205,7 @@
       "Nhân dân"
     ],
     "answer": 3,
-    "explain": "Văn hóa phải gắn với nhân dân và phục vụ nhân dân."
+    "explain": "Nhân dân"
   },
   {
     "id": 617,
@@ -218,7 +218,7 @@
       "Văn nghệ không cần tính dân tộc"
     ],
     "answer": 0,
-    "explain": "Hồ Chí Minh xem văn hóa văn nghệ có vai trò chiến đấu, giáo dục và xây dựng con người."
+    "explain": "Văn nghệ là một mặt trận, nghệ sĩ là chiến sĩ trên mặt trận ấy"
   },
   {
     "id": 618,
@@ -231,7 +231,7 @@
       "Tận tụy phục vụ nhân dân"
     ],
     "answer": 1,
-    "explain": "Chủ nghĩa cá nhân là nguồn gốc của nhiều căn bệnh đạo đức."
+    "explain": "Chủ nghĩa cá nhân, quan liêu, tham ô, lãng phí"
   },
   {
     "id": 619,
@@ -244,7 +244,7 @@
       "Không cần tự phê bình"
     ],
     "answer": 2,
-    "explain": "Học tập đạo đức phải gắn với thực hành thường xuyên."
+    "explain": "Rèn luyện bằng hành động cụ thể trong học tập, lao động và quan hệ xã hội"
   },
   {
     "id": 620,
@@ -257,6 +257,6 @@
       "Văn hóa, đạo đức, con người"
     ],
     "answer": 3,
-    "explain": "Chương VI tập trung vào văn hóa, đạo đức và con người trong tư tưởng Hồ Chí Minh."
+    "explain": "Văn hóa, đạo đức, con người"
   }
 ]

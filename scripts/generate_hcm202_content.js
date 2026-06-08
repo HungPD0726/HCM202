@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 const chapters = [
   {
@@ -8,7 +9,7 @@ const chapters = [
     title: 'Chương I: Khái niệm, đối tượng, phương pháp nghiên cứu và ý nghĩa học tập',
     short: 'Khái niệm và phương pháp',
     color: '#22c55e',
-    icon: 'khoahoc.png',
+    icon: 'assets/khoahoc.png',
     description: '<b>Chương I</b> giới thiệu những vấn đề nhập môn của học phần Tư tưởng Hồ Chí Minh: khái niệm, đối tượng nghiên cứu, phương pháp nghiên cứu và ý nghĩa học tập. Trọng tâm là hiểu Tư tưởng Hồ Chí Minh như một hệ thống quan điểm toàn diện, sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam.',
     nodes: [
       ['Khái niệm Tư tưởng Hồ Chí Minh', 'Tư tưởng Hồ Chí Minh là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam; là kết quả vận dụng, phát triển sáng tạo chủ nghĩa Mác - Lênin vào điều kiện cụ thể của nước ta; kế thừa truyền thống dân tộc và tinh hoa văn hóa nhân loại.'],
@@ -46,7 +47,7 @@ const chapters = [
     title: 'Chương II: Cơ sở, quá trình hình thành và phát triển tư tưởng Hồ Chí Minh',
     short: 'Cơ sở và quá trình hình thành',
     color: '#0ea5e9',
-    icon: 'vietnam.png',
+    icon: 'assets/vietnam.png',
     description: '<b>Chương II</b> làm rõ các cơ sở thực tiễn, cơ sở lý luận, nhân tố chủ quan và các giai đoạn hình thành, phát triển tư tưởng Hồ Chí Minh. Đây là chương nền để hiểu vì sao tư tưởng của Người vừa dân tộc, vừa khoa học, vừa cách mạng.',
     nodes: [
       ['Cơ sở thực tiễn', 'Thực tiễn Việt Nam cuối thế kỷ XIX đầu thế kỷ XX đặt ra yêu cầu tìm con đường cứu nước mới. Thực tiễn thế giới, đặc biệt Cách mạng Tháng Mười Nga và phong trào giải phóng dân tộc, tạo điều kiện để Hồ Chí Minh tiếp cận con đường cách mạng vô sản.'],
@@ -87,7 +88,7 @@ chapters.push(
     title: 'Chương III: Tư tưởng Hồ Chí Minh về độc lập dân tộc và chủ nghĩa xã hội',
     short: 'Độc lập dân tộc và CNXH',
     color: '#f97316',
-    icon: 'vietnam1.png',
+    icon: 'assets/vietnam1.png',
     description: '<b>Chương III</b> trình bày tư tưởng Hồ Chí Minh về độc lập dân tộc, cách mạng giải phóng dân tộc, chủ nghĩa xã hội và con đường đi lên chủ nghĩa xã hội ở Việt Nam. Trọng tâm là mối quan hệ độc lập dân tộc gắn liền với chủ nghĩa xã hội.',
     nodes: [
       ['Độc lập dân tộc', 'Độc lập, tự do là quyền thiêng liêng, bất khả xâm phạm của mọi dân tộc. Độc lập phải là độc lập thật sự, gắn với quyền làm chủ, hạnh phúc của nhân dân và toàn vẹn chủ quyền quốc gia.'],
@@ -125,7 +126,7 @@ chapters.push(
     title: 'Chương IV: Tư tưởng Hồ Chí Minh về Đảng Cộng sản Việt Nam và Nhà nước của nhân dân, do nhân dân, vì nhân dân',
     short: 'Đảng và Nhà nước',
     color: '#a855f7',
-    icon: 'map.png',
+    icon: 'assets/map.png',
     description: '<b>Chương IV</b> tập trung vào tư tưởng Hồ Chí Minh về xây dựng Đảng Cộng sản Việt Nam cầm quyền và xây dựng Nhà nước kiểu mới của nhân dân, do nhân dân, vì nhân dân. Đây là nội dung trực tiếp liên quan đến vai trò lãnh đạo, quản lý và phục vụ nhân dân.',
     nodes: [
       ['Đảng Cộng sản Việt Nam', 'Đảng là nhân tố hàng đầu quyết định thắng lợi của cách mạng Việt Nam. Đảng phải lấy chủ nghĩa Mác - Lênin làm nền tảng, gắn bó với nhân dân, có đường lối đúng, tổ chức chặt chẽ và đạo đức cách mạng trong sáng.'],
@@ -166,7 +167,7 @@ chapters.push(
     title: 'Chương V: Tư tưởng Hồ Chí Minh về đại đoàn kết toàn dân tộc và đoàn kết quốc tế',
     short: 'Đại đoàn kết',
     color: '#eab308',
-    icon: 'vietnam.png',
+    icon: 'assets/vietnam.png',
     description: '<b>Chương V</b> làm rõ đại đoàn kết toàn dân tộc là chiến lược cơ bản, lâu dài, quyết định thành công của cách mạng; đồng thời phân tích đoàn kết quốc tế và sự kết hợp sức mạnh dân tộc với sức mạnh thời đại.',
     nodes: [
       ['Vai trò đại đoàn kết', 'Đại đoàn kết toàn dân tộc là vấn đề có ý nghĩa chiến lược, quyết định thành công của cách mạng. Đoàn kết tạo nên sức mạnh tổng hợp để vượt qua khó khăn và giành thắng lợi.'],
@@ -204,7 +205,7 @@ chapters.push(
     title: 'Chương VI: Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người',
     short: 'Văn hóa, đạo đức, con người',
     color: '#ef4444',
-    icon: 'macimg.png',
+    icon: 'assets/macimg.png',
     description: '<b>Chương VI</b> trình bày tư tưởng Hồ Chí Minh về văn hóa, đạo đức và con người. Nội dung trọng tâm là xây dựng nền văn hóa mới, đạo đức cách mạng và con người Việt Nam phát triển toàn diện.',
     nodes: [
       ['Tư tưởng về văn hóa', 'Văn hóa có quan hệ chặt chẽ với chính trị, kinh tế, xã hội; vừa là mục tiêu, vừa là động lực của cách mạng. Hồ Chí Minh chủ trương xây dựng nền văn hóa dân tộc, khoa học, đại chúng.'],
@@ -285,7 +286,8 @@ const allQuestions = [];
 
 for (const chapter of chapters) {
   const questions = chapter.quiz.map((q, i) => makeQuestion(chapter.id, i, q));
-  fs.writeFileSync(chapter.file, JSON.stringify(questions, null, 2) + '\n', 'utf8');
+  const chapterPath = path.join(__dirname, '..', 'data', chapter.file);
+  fs.writeFileSync(chapterPath, JSON.stringify(questions, null, 2) + '\n', 'utf8');
   allQuestions.push(...questions);
 }
 
@@ -293,7 +295,7 @@ const mindmap = {
   id: 'root',
   name: 'TƯ TƯỞNG HỒ CHÍ MINH\nHCM202',
   level: 0,
-  icon: 'vietnam1.png',
+  icon: 'assets/vietnam1.png',
   description: '<b>HCM202 - Tư tưởng Hồ Chí Minh</b> hệ thống hóa những quan điểm cơ bản của Hồ Chí Minh về cách mạng Việt Nam. Nội dung project được sắp xếp theo 6 chương của giáo trình 2019, kết hợp trọng tâm ôn tập trong đề cương lý thuyết.',
   vietnam_example: '',
   meaning: 'Mục tiêu học tập: nắm khái niệm, cơ sở hình thành, nội dung cốt lõi và giá trị vận dụng của Tư tưởng Hồ Chí Minh trong học tập, rèn luyện và thực tiễn xây dựng đất nước.',
@@ -311,7 +313,7 @@ const mindmap = {
   }))
 };
 
-fs.writeFileSync('quiz.json', JSON.stringify(allQuestions, null, 2) + '\n', 'utf8');
-fs.writeFileSync('mindmap.json', JSON.stringify(mindmap, null, 2) + '\n', 'utf8');
+fs.writeFileSync(path.join(__dirname, '..', 'data', 'quiz.json'), JSON.stringify(allQuestions, null, 2) + '\n', 'utf8');
+fs.writeFileSync(path.join(__dirname, '..', 'data', 'mindmap.json'), JSON.stringify(mindmap, null, 2) + '\n', 'utf8');
 
 console.log(`Generated ${chapters.length} chapters and ${allQuestions.length} questions.`);

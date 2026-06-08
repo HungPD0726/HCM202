@@ -10,19 +10,19 @@
             "use": "@vercel/static"
         },
         {
-            "src": "app.js",
+            "src": "js/app.js",
             "use": "@vercel/static"
         },
         {
-            "src": "style.css",
+            "src": "css/style.css",
             "use": "@vercel/static"
         },
         {
-            "src": "*.json",
+            "src": "data/*.json",
             "use": "@vercel/static"
         },
         {
-            "src": "*.png",
+            "src": "assets/*.png",
             "use": "@vercel/static"
         }
     ],

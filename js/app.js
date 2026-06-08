@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', async function () {
   var searchBtnToggle = document.getElementById('search-btn-toggle');
   var searchInputContainer = document.getElementById('search-input-container');
   var navTimelineBtn = document.getElementById('nav-timeline-btn');
+  var introOverlay = document.getElementById('intro-overlay');
+  var teamAvatarBtn = document.getElementById('team-avatar-btn');
+  var introCloseBtnTop = document.getElementById('intro-close-btn-top');
+  var introViewMapBtn = document.getElementById('intro-view-map-btn');
 
   // ── D3 setup ──────────────────────────────────────────────────────
   var svg = d3.select(svgEl);
@@ -146,14 +150,14 @@ document.addEventListener('DOMContentLoaded', async function () {
   var lastRoot = null;
   var mapData, quizData;
   try {
-    mapData = await d3.json('mindmap.json');
-    quizData = await d3.json('quiz.json');
+    mapData = await d3.json('data/mindmap.json');
+    quizData = await d3.json('data/quiz.json');
 
     allNodeCount = d3.hierarchy(mapData).descendants().length - 1;
     if (totalCount) totalCount.textContent = allNodeCount;
 
     buildMap(mapData);
-    gsap.to(loader, { opacity: 0, duration: 0.5, onComplete: function () { loader.style.display = 'none'; } });
+    gsap.to(loader, { opacity: 0, duration: 0.5, onComplete: function () { loader.style.display = 'none'; openIntro(); } });
   } catch (err) {
     console.error('Load error:', err);
     loader.innerHTML = '<p style="color:#ef5350">Lỗi tải dữ liệu. Vui lòng tải lại trang.</p>';
@@ -301,7 +305,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     nodes.filter(function (d) { return d.depth === 0; })
       .append('image')
-      .attr('href', 'map.png')
+      .attr('href', 'assets/map.png')
       .attr('width', 1400).attr('height', 1800)
       .attr('x', -700).attr('y', -900)
       .style('position', 'relative')
@@ -331,7 +335,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         var icon = d.data.icon;
         if (icon.toLowerCase().endsWith('.png')) {
           var size = d.depth === 1 ? 60 : 40;
-          if (icon.toLowerCase() === 'vietnam.png') size = 48;
+          if (icon.toLowerCase() === 'vietnam.png' || icon.toLowerCase() === 'assets/vietnam.png' || icon.toLowerCase().endsWith('/vietnam.png')) size = 48;
           el.append('image')
             .attr('xlink:href', icon)
             .attr('width', size)
@@ -846,15 +850,16 @@ document.addEventListener('DOMContentLoaded', async function () {
     var isClickOnChatBtn = e.target.closest('#ai-chatbot-btn');
     var isClickOnChatWindow = e.target.closest('#ai-chat-window');
     var isClickOnBranchNav = e.target.closest('#branch-nav');
+    var isClickOnIntro = e.target.closest('#intro-overlay') || e.target.closest('#team-avatar-btn');
 
-    var isClickOnAnyUIElement = isClickInsidePanel || isClickOnNode || isClickOnBranchBtn || isClickSearchItem || isClickOnControls || isClickOnBreadcrumb || isClickOnTopBar || isClickOnSidebar || isClickOnChatBtn || isClickOnChatWindow || isClickOnBranchNav;
+    var isClickOnAnyUIElement = isClickInsidePanel || isClickOnNode || isClickOnBranchBtn || isClickSearchItem || isClickOnControls || isClickOnBreadcrumb || isClickOnTopBar || isClickOnSidebar || isClickOnChatBtn || isClickOnChatWindow || isClickOnBranchNav || isClickOnIntro;
 
     if (!isClickOnAnyUIElement && focusedNode) {
       resetBranchFocus();
     }
 
     var isOpeningNode = isClickOnNode || isClickOnBranchBtn || isClickSearchItem || isClickOnBranchNav;
-    var isInteractingWithChat = isClickOnChatBtn || isClickOnChatWindow;
+    var isInteractingWithChat = isClickOnChatBtn || isClickOnChatWindow || isClickOnIntro;
 
     if (!isClickInsidePanel && !isOpeningNode && !isInteractingWithChat) {
       if (detailPanel.classList.contains('open')) {
@@ -899,11 +904,11 @@ document.addEventListener('DOMContentLoaded', async function () {
     try {
       if (topic === 'all') {
         const indices = [1, 2, 3, 4, 5, 6];
-        const loads = indices.map(i => d3.json(`chapter${i}.json`));
+        const loads = indices.map(i => d3.json(`data/chapter${i}.json`));
         const results = await Promise.all(loads);
         qData = results.flat();
       } else {
-        qData = await d3.json(`chapter${topic}.json`);
+        qData = await d3.json(`data/chapter${topic}.json`);
       }
     } catch (err) {
       console.error('Quiz load error:', err);
@@ -1096,9 +1101,46 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
   }
 
+  // ── INTRO MODAL LOGIC ──────────────────────────────────────────────
+  function openIntro() {
+    if (introOverlay) {
+      introOverlay.classList.add('show');
+    }
+  }
+
+  function closeIntro() {
+    if (introOverlay) {
+      introOverlay.classList.remove('show');
+    }
+  }
+
+  if (teamAvatarBtn) {
+    teamAvatarBtn.addEventListener('click', openIntro);
+  }
+
+  if (introCloseBtnTop) {
+    introCloseBtnTop.addEventListener('click', closeIntro);
+  }
+
+  if (introOverlay) {
+    introOverlay.addEventListener('click', function (e) {
+      if (e.target === introOverlay) closeIntro();
+    });
+  }
+
+  if (introViewMapBtn) {
+    introViewMapBtn.addEventListener('click', function () {
+      closeIntro();
+      if (lastRoot) {
+        onNodeClick(null, lastRoot);
+      }
+    });
+  }
+
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       if (quizOverlay && quizOverlay.classList.contains('show')) closeQuiz();
+      if (introOverlay && introOverlay.classList.contains('show')) closeIntro();
     }
   });
 

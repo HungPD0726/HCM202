@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const filePath = path.join(__dirname, '..', 'mindmap.json');
+const filePath = path.join(__dirname, '..', 'data', 'mindmap.json');
 
 const phrases = [
   'Tư tưởng Hồ Chí Minh',
