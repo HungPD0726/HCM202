@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var autoplayBtn = document.getElementById('autoplay-btn');
   var resetMapBtn = document.getElementById('reset-map-btn');
   var toggleMuteBtn = document.getElementById('toggle-mute');
+  var toggleBioBtn = document.getElementById('toggle-bio-btn');
+  var closeBioBtn = document.getElementById('close-bio-btn');
+  var drawerOverlay = document.getElementById('drawer-overlay');
+  var bioDrawer = document.getElementById('bio-drawer');
   
   var infoBadge = document.getElementById('info-badge');
   var infoLocation = document.getElementById('info-location');
@@ -129,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
       name: "Bến Nhà Rồng (Sài Gòn)",
       year: "1911",
       x: 720, y: 380,
-      image: "assets/journey_nharong_1911.png",
+      image: "assets/nguyễn tất thành ra đi tìm đường cứu nước.jpg",
       desc: "Ngày 5/6/1911, người thanh niên Nguyễn Tất Thành (lấy tên là Văn Ba) đã xuống tàu Đô đốc Latouche-Tréville rời Bến cảng Nhà Rồng ra đi tìm con đường cứu nước giải phóng dân tộc.",
       ideology: "Khởi đầu cho hành trình thực tiễn, định hình ý chí tìm con đường độc lập dân tộc tự chủ hoàn toàn mới."
     },
@@ -138,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
       name: "Luân Đôn (Vương Quốc Anh)",
       year: "1913 - 1917",
       x: 380, y: 150,
-      image: "assets/vietnambackground.png",
+      image: "assets/Bác Hồ ở Boston.jpg",
       desc: "Tại Anh, Người đã làm nhiều công việc vất vả như cào tuyết, quét dọn, phụ bếp ở khách sạn Carlton. Việc sống và lao động giúp Người thấu hiểu hơn về giai cấp vô sản và nhân dân lao động ở nước bản xứ.",
       ideology: "Giúp củng cố lập trường giai cấp, thấu suốt bản chất bóc lột của chủ nghĩa đế quốc Anh ngay tại trung tâm chế độ."
     },
@@ -147,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
       name: "Paris (Cộng Hòa Pháp)",
       year: "1917 - 1923",
       x: 410, y: 175,
-      image: "assets/vietnam.png",
+      image: "assets/Nguyễn Ái Quốc thành lập đảng cộng sản Pháp.jpg",
       desc: "Năm 1919, Người gửi bản Yêu sách của nhân dân An Nam đến Hội nghị Versailles. Tháng 7/1920, Người tiếp cận Luận cương của Lênin về dân tộc và thuộc địa. Tháng 12/1920, Người bỏ phiếu sáng lập Đảng Cộng sản Pháp.",
       ideology: "Mốc quan trọng nhất: Chuyển biến lập trường từ chủ nghĩa yêu nước sang chủ nghĩa cộng sản khoa học."
     },
@@ -156,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
       name: "Mát-xcơ-va (Liên Xô)",
       year: "1923 - 1924",
       x: 520, y: 130,
-      image: "assets/khoahoc.png",
+      image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
       desc: "Người đến Liên Xô học tập lý luận và hoạt động thực tiễn tại Quốc tế Cộng sản, dự Đại hội V Quốc tế Cộng sản, viết nhiều bài báo định hình tư tưởng thuộc địa.",
       ideology: "Hoàn thiện thế giới quan Mác - Lênin và chuẩn bị hệ thống lý luận giải phóng dân tộc cho cách mạng Việt Nam."
     },
@@ -165,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
       name: "Quảng Châu (Trung Quốc)",
       year: "1924 - 1927",
       x: 750, y: 310,
-      image: "assets/vietnambackground.png",
+      image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
       desc: "Người thành lập Hội Việt Nam Cách mạng Thanh niên (1925), ra báo Thanh niên, mở các lớp chính trị huấn luyện cán bộ, biên soạn tập bài giảng thành cuốn sách Đường Kách mệnh (1927).",
       ideology: "Chuẩn bị về mặt chính trị, tư tưởng và tổ chức cán bộ, định hình vai trò hạt nhân lãnh đạo của Đảng."
     },
@@ -174,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
       name: "Hồng Kông",
       year: "1930",
       x: 770, y: 330,
-      image: "assets/map.png",
+      image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
       desc: "Từ ngày 6/1 đến 7/2/1930, Người chủ trì Hội nghị thống nhất các tổ chức cộng sản trong nước tại Cửu Long (Hồng Kông) để thành lập Đảng Cộng sản Việt Nam.",
       ideology: "Kết quả tất yếu của quá trình kết hợp chủ nghĩa Mác - Lênin với phong trào yêu nước và phong trào công nhân."
     },
@@ -183,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
       name: "Pac Bó (Cao Bằng)",
       year: "1941",
       x: 710, y: 350,
-      image: "assets/ho_chi_minh_pacbo.png",
+      image: "assets/Bác Hồ tại Pác bó.jpg",
       desc: "Ngày 28/1/1941, Người vượt biên giới Việt - Trung trở về Tổ quốc sau 30 năm bôn ba. Người sống và làm việc tại hang Cốc Bó (Pác Bó, Cao Bằng) để trực tiếp lãnh đạo chuẩn bị tổng khởi nghĩa.",
       ideology: "Hiện thực hóa lý luận cách mạng trực tiếp vào điều kiện cụ thể trong nước, chuẩn bị cho Cách mạng Tháng Tám."
     }
@@ -418,9 +422,41 @@ document.addEventListener('DOMContentLoaded', function () {
         selectMilestone(currentIndex + 1);
       } else {
         playChimeSound();
-        alert('Chúc mừng! Bạn đã hoàn thành hành trình 30 năm bôn ba cứu nước của Bác (1911 - 1941). Hãy kéo xuống để xem phần tiểu sử đầy đủ của Người.');
+        alert('Chúc mừng! Bạn đã hoàn thành hành trình 30 năm bôn ba cứu nước của Bác (1911 - 1941). Hãy bấm nút tiểu sử trên thanh công cụ để xem tiểu sử đầy đủ của Người.');
       }
     });
+  }
+
+  // ── Biography Drawer Controls ─────────────────────────────────────
+  function openDrawer() {
+    playClickSound();
+    if (bioDrawer) bioDrawer.classList.add('open');
+    if (drawerOverlay) drawerOverlay.classList.add('open');
+  }
+
+  function closeDrawer() {
+    playClickSound();
+    if (bioDrawer) bioDrawer.classList.remove('open');
+    if (drawerOverlay) drawerOverlay.classList.remove('open');
+  }
+
+  if (toggleBioBtn) {
+    toggleBioBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (bioDrawer && bioDrawer.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+  }
+
+  if (closeBioBtn) {
+    closeBioBtn.addEventListener('click', closeDrawer);
+  }
+
+  if (drawerOverlay) {
+    drawerOverlay.addEventListener('click', closeDrawer);
   }
 
   // Initialize
@@ -432,6 +468,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') {
       stopAutoplay();
       resetView();
+      closeDrawer();
     }
   });
 
