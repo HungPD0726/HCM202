@@ -17,10 +17,17 @@ html {
 
 body {
     min-height: 100vh;
+    height: auto !important;
+    width: auto !important;
+    overflow-y: auto !important;
     background:
         radial-gradient(circle at top left, rgba(250, 204, 21, 0.16), transparent 32rem),
         radial-gradient(circle at top right, rgba(239, 68, 68, 0.18), transparent 34rem),
         linear-gradient(135deg, rgba(11, 13, 23, 0.96), rgba(29, 8, 8, 0.96));
+}
+
+body.drawer-open {
+    overflow: hidden !important;
 }
 
 body::before {
