@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var infoIdeology = document.getElementById('info-ideology');
   var prevBtn = document.getElementById('prev-milestone');
   var nextBtn = document.getElementById('next-milestone');
+  var journeyStatus = document.getElementById('journey-status');
+  var journeyToast = document.getElementById('journey-toast');
 
   // ── Preferences ───────────────────────────────────────────────────
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -131,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: "saigon",
       name: "Bến Nhà Rồng (Sài Gòn)",
+      shortLabel: "Sài Gòn",
       year: "1911",
       lon: 106.7068, lat: 10.7628,
       image: "assets/nguyễn tất thành ra đi tìm đường cứu nước.jpg",
@@ -139,7 +142,8 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       id: "london",
-      name: "Luân Đôn (Vương Quốc Anh)",
+      name: "Luân Đôn (Vương quốc Anh)",
+      shortLabel: "Luân Đôn",
       year: "1913 - 1917",
       lon: -0.1278, lat: 51.5074,
       image: "assets/Bác Hồ ở Boston.jpg",
@@ -148,7 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       id: "paris",
-      name: "Paris (Cộng Hòa Pháp)",
+      name: "Paris (Cộng hòa Pháp)",
+      shortLabel: "Paris",
       year: "1917 - 1923",
       lon: 2.3522, lat: 48.8566,
       image: "assets/Nguyễn Ái Quốc thành lập đảng cộng sản Pháp.jpg",
@@ -158,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: "moscow",
       name: "Mát-xcơ-va (Liên Xô)",
+      shortLabel: "Mát-xcơ-va",
       year: "1923 - 1924",
       lon: 37.6173, lat: 55.7558,
       image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
@@ -167,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: "guangzhou",
       name: "Quảng Châu (Trung Quốc)",
+      shortLabel: "Quảng Châu",
       year: "1924 - 1927",
       lon: 113.2644, lat: 23.1291,
       image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
@@ -176,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     {
       id: "hongkong",
       name: "Hồng Kông",
+      shortLabel: "Hồng Kông",
       year: "1930",
       lon: 114.1694, lat: 22.3193,
       image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
@@ -184,7 +192,8 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     {
       id: "pacbo",
-      name: "Pac Bó (Cao Bằng)",
+      name: "Pác Bó (Cao Bằng)",
+      shortLabel: "Pác Bó",
       year: "1941",
       lon: 106.1883, lat: 22.8633,
       image: "assets/Bác Hồ tại Pác bó.jpg",
@@ -211,6 +220,26 @@ document.addEventListener('DOMContentLoaded', function () {
   var currentIndex = 0;
   var autoplayTimer = null;
   var isAutoplayActive = false;
+  var toastTimer = null;
+  var lastFocusedElement = null;
+
+  function showJourneyToast(message) {
+    if (!journeyToast) return;
+    journeyToast.textContent = message;
+    journeyToast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      journeyToast.classList.remove('show');
+    }, 5200);
+  }
+
+  function completeJourney() {
+    stopAutoplay();
+    playChimeSound();
+    var message = 'Đã hoàn thành hành trình 30 năm bôn ba cứu nước (1911 - 1941). Bạn có thể mở tiểu sử để ôn lại toàn bộ dòng thời gian.';
+    if (journeyStatus) journeyStatus.textContent = message;
+    showJourneyToast(message);
+  }
 
   // ── D3 SVG Map Drawing ────────────────────────────────────────────
   var svg = d3.select(svgEl);
@@ -296,11 +325,21 @@ document.addEventListener('DOMContentLoaded', function () {
     .enter()
     .append('g')
     .attr('class', 'map-marker')
+    .attr('role', 'button')
+    .attr('tabindex', 0)
+    .attr('aria-label', function (d) { return d.name + ', ' + d.year; })
     .attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; })
     .on('click', function (event, d) {
       event.stopPropagation();
       var idx = milestones.findIndex(m => m.id === d.id);
       selectMilestone(idx);
+    })
+    .on('keydown', function (event, d) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        var idx = milestones.findIndex(m => m.id === d.id);
+        selectMilestone(idx);
+      }
     });
 
   markers.append('circle').attr('class', 'marker-pulse').attr('r', 16);
@@ -311,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .attr('class', 'marker-text')
     .attr('y', 20)
     .attr('text-anchor', 'middle')
-    .text(function (d) { return d.name.split(' ')[0]; });
+    .text(function (d) { return d.shortLabel || d.name.split(' ')[0]; });
 
   // ── Render Card Details ───────────────────────────────────────────
   function selectMilestone(index, autoZoom) {
@@ -334,6 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (infoYear) infoYear.textContent = d.year;
     if (infoDesc) infoDesc.textContent = d.desc;
     if (infoIdeology) infoIdeology.textContent = d.ideology;
+    if (journeyStatus) journeyStatus.textContent = 'Đang xem: ' + d.year + ' - ' + d.name + '.';
     
     if (infoImage) {
       infoImage.src = d.image;
@@ -353,8 +393,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (nextBtn) {
       if (index === milestones.length - 1) {
         nextBtn.innerHTML = 'Hoàn thành <i class="bi bi-patch-check-fill"></i>';
+        nextBtn.setAttribute('aria-label', 'Hoàn thành hành trình');
       } else {
         nextBtn.innerHTML = 'Tiếp theo <i class="bi bi-arrow-right"></i>';
+        nextBtn.setAttribute('aria-label', 'Mốc tiếp theo');
       }
     }
 
@@ -404,6 +446,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (autoplayBtn) {
       autoplayBtn.innerHTML = '<i class="bi bi-stop-circle-fill"></i> Tạm dừng tự động';
       autoplayBtn.classList.add('active');
+      autoplayBtn.setAttribute('aria-pressed', 'true');
     }
 
     // Select the first if we completed
@@ -415,9 +458,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (currentIndex < milestones.length - 1) {
         selectMilestone(currentIndex + 1);
       } else {
-        stopAutoplay();
-        playChimeSound();
-        alert('Chúc mừng! Bạn đã hoàn thành hành trình 30 năm bôn ba cứu nước của Chủ tịch Hồ Chí Minh (1911 - 1941).');
+        completeJourney();
       }
     }, 4500);
   }
@@ -431,6 +472,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (autoplayBtn) {
       autoplayBtn.innerHTML = '<i class="bi bi-play-circle-fill"></i> Bắt đầu hành trình tự động';
       autoplayBtn.classList.remove('active');
+      autoplayBtn.setAttribute('aria-pressed', 'false');
     }
   }
 
@@ -462,8 +504,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (currentIndex < milestones.length - 1) {
         selectMilestone(currentIndex + 1);
       } else {
-        playChimeSound();
-        alert('Chúc mừng! Bạn đã hoàn thành hành trình 30 năm bôn ba cứu nước của Bác (1911 - 1941). Hãy bấm nút tiểu sử trên thanh công cụ để xem tiểu sử đầy đủ của Người.');
+        completeJourney();
       }
     });
   }
@@ -472,6 +513,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var heroOpenBioBtn = document.getElementById('hero-open-bio');
 
   function openDrawer() {
+    if (bioDrawer && bioDrawer.classList.contains('open')) return;
+    lastFocusedElement = document.activeElement;
     playClickSound();
     document.body.classList.add('drawer-open');
     if (bioDrawer) {
@@ -491,9 +534,17 @@ document.addEventListener('DOMContentLoaded', function () {
         { opacity: 1, x: 0, duration: 0.45, stagger: 0.08, ease: "power2.out", delay: 0.15 }
       );
     }
+
+    if (toggleBioBtn) toggleBioBtn.setAttribute('aria-expanded', 'true');
+    if (closeBioBtn) {
+      setTimeout(function () {
+        closeBioBtn.focus();
+      }, prefersReducedMotion ? 0 : 120);
+    }
   }
 
   function closeDrawer() {
+    if (!bioDrawer || !bioDrawer.classList.contains('open')) return;
     playClickSound();
     document.body.classList.remove('drawer-open');
     if (bioDrawer) {
@@ -505,6 +556,11 @@ document.addEventListener('DOMContentLoaded', function () {
       drawerOverlay.classList.remove('show');
       drawerOverlay.setAttribute('aria-hidden', 'true');
     }
+    if (toggleBioBtn) toggleBioBtn.setAttribute('aria-expanded', 'false');
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+      lastFocusedElement.focus();
+    }
+    lastFocusedElement = null;
   }
 
   if (toggleBioBtn) {
@@ -534,15 +590,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Initialize
+  if (toggleBioBtn) toggleBioBtn.setAttribute('aria-expanded', 'false');
+  if (autoplayBtn) autoplayBtn.setAttribute('aria-pressed', 'false');
   selectMilestone(0, 'load');
   setTimeout(resetView, 300);
+
+  window.addEventListener('resize', function () {
+    isMobile = window.innerWidth <= 768;
+  });
 
   // Close modals on Escape key
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       stopAutoplay();
-      resetView();
-      closeDrawer();
+      if (bioDrawer && bioDrawer.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        resetView();
+      }
     }
   });
 

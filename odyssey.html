@@ -64,16 +64,14 @@
         </div>
     </header>
 
-    <!-- MAIN CONTAINER -->
     <main id="odyssey-app">
         <section class="odyssey-hero" aria-labelledby="hero-title">
-            <div class="hero-card">
-                <span class="eyebrow"><i class="bi bi-stars" aria-hidden="true"></i> HCM202 Interactive Learning</span>
+            <div class="hero-content">
+                <span class="eyebrow"><i class="bi bi-stars" aria-hidden="true"></i> HCM202</span>
                 <h1 id="hero-title">Theo dấu hành trình tìm đường cứu nước</h1>
                 <p>
-                    Trang này giúp người học quan sát các mốc quan trọng trong hành trình bôn ba của Nguyễn Tất Thành —
-                    Nguyễn Ái Quốc,
-                    đồng thời liên hệ từng sự kiện với quá trình hình thành tư tưởng Hồ Chí Minh.
+                    Từ Bến Nhà Rồng đến Pác Bó, hành trình ba mươi năm của Nguyễn Tất Thành — Nguyễn Ái Quốc
+                    kết tinh ý chí độc lập dân tộc và con đường cách mạng Việt Nam.
                 </p>
                 <div class="hero-actions">
                     <a href="#journey-map" class="hero-btn"><i class="bi bi-map-fill" aria-hidden="true"></i> Khám phá
@@ -81,42 +79,39 @@
                     <button class="hero-btn secondary" id="hero-open-bio" type="button"><i
                             class="bi bi-person-lines-fill" aria-hidden="true"></i> Xem tiểu sử</button>
                 </div>
+                <div class="hero-facts" aria-label="Các mốc chính">
+                    <div class="stat-card">
+                        <span class="stat-number">1911</span>
+                        <span class="stat-label">Rời Bến Nhà Rồng, bắt đầu hành trình tìm đường cứu nước.</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">30 năm</span>
+                        <span class="stat-label">Bôn ba, khảo sát thực tiễn và chuẩn bị đường lối cách mạng.</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1941</span>
+                        <span class="stat-label">Trở về Pác Bó, trực tiếp lãnh đạo cách mạng Việt Nam.</span>
+                    </div>
+                </div>
             </div>
-
-            <aside class="hero-side-card" aria-label="Tóm tắt nội dung chính">
-                <div class="stat-card">
-                    <span class="stat-number">1911</span>
-                    <span class="stat-label">Rời Bến Nhà Rồng, bắt đầu hành trình tìm đường cứu nước.</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">30 năm</span>
-                    <span class="stat-label">Bôn ba, khảo sát thực tiễn và chuẩn bị đường lối cách mạng.</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">1941</span>
-                    <span class="stat-label">Trở về Pác Bó, trực tiếp lãnh đạo cách mạng Việt Nam.</span>
-                </div>
-            </aside>
         </section>
 
         <!-- SECTION 1: MAP ODYSSEY -->
         <section class="odyssey-section" id="journey-map" aria-labelledby="journey-title">
             <div class="section-header">
                 <div>
-                    <span class="eyebrow"><i class="bi bi-compass" aria-hidden="true"></i> Interactive Map</span>
+                    <span class="eyebrow"><i class="bi bi-compass" aria-hidden="true"></i> Bản đồ hành trình</span>
                     <h2 id="journey-title">Hành trình cứu nước (1911 - 1941)</h2>
                     <p>
-                        Khám phá bản đồ số mô phỏng cuộc bôn ba tìm đường cứu nước của người thanh niên yêu nước Nguyễn
-                        Tất Thành.
-                        Chọn từng mốc để xem địa điểm, năm, sự kiện và giá trị tư tưởng liên quan.
+                        Mỗi mốc thể hiện một chặng đường quan trọng, gắn sự kiện lịch sử với giá trị tư tưởng hình
+                        thành trong hoạt động thực tiễn của Người.
                     </p>
                 </div>
                 <div class="map-legend" aria-label="Chú thích bản đồ">
                     <span class="legend-pill"><span class="legend-dot" aria-hidden="true"></span> Mốc lịch sử</span>
-                    <span class="legend-pill"><i class="bi bi-cursor-fill" aria-hidden="true"></i> Bấm để xem chi
-                        tiết</span>
-                    <span class="legend-pill"><i class="bi bi-play-fill" aria-hidden="true"></i> Có chế độ tự
-                        động</span>
+                    <span class="legend-pill"><i class="bi bi-lightbulb-fill" aria-hidden="true"></i> Liên hệ tư
+                        tưởng</span>
+                    <span class="legend-pill"><i class="bi bi-play-fill" aria-hidden="true"></i> Tự động</span>
                 </div>
             </div>
 
@@ -169,6 +164,7 @@
                             Tiếp theo <i class="bi bi-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
+                    <div class="journey-status" id="journey-status" aria-live="polite"></div>
                 </aside>
             </div>
         </section>
@@ -184,10 +180,15 @@
             <i class="bi bi-x-lg" aria-hidden="true"></i>
         </button>
         <div class="drawer-header">
-            <span class="eyebrow"><i class="bi bi-person-badge-fill" aria-hidden="true"></i> Biography Timeline</span>
+            <span class="eyebrow"><i class="bi bi-person-badge-fill" aria-hidden="true"></i> Dòng thời gian</span>
             <h2 id="bio-title">Tiểu sử Chủ tịch Hồ Chí Minh</h2>
-            <p>Dữ liệu lịch sử chính thống về cuộc đời cách mạng vĩ đại của Người, trình bày theo dòng thời gian để dễ
-                ôn tập.</p>
+            <p>Những chặng chính trong cuộc đời cách mạng của Người, trình bày ngắn gọn để người học dễ nắm mốc và ôn
+                tập.</p>
+            <div class="bio-summary-grid" aria-label="Tóm tắt tiểu sử">
+                <span><strong>1890</strong> Sinh tại Nghệ An</span>
+                <span><strong>1911</strong> Ra đi cứu nước</span>
+                <span><strong>1945</strong> Khai sinh nước Việt Nam Dân chủ Cộng hòa</span>
+            </div>
         </div>
         <div class="drawer-content">
             <div class="bio-timeline-vertical">
@@ -288,6 +289,8 @@
             </div>
         </div>
     </aside>
+
+    <div id="journey-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script src="js/odyssey.js"></script>
 </body>
