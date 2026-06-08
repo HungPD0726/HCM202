@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hành trình & Tiểu sử — Chủ tịch Hồ Chí Minh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/odyssey.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div id="topbar">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="assets/vietnam1.png" alt="Icon">
+            </div>
+            <div class="logo-text">
+                <div class="main-title">HÀNH TRÌNH & TIỂU SỬ</div>
+                <div class="sub-title">Chủ tịch Hồ Chí Minh</div>
+            </div>
+        </div>
+
+        <div id="branch-nav">
+            <a href="index.html" class="nav-item-link" aria-label="Quay lại Sơ đồ tư duy">
+                <i class="bi bi-diagram-3-fill"></i> Sơ đồ tư duy
+            </a>
+            <div class="nav-sep-alt"></div>
+            <a href="odyssey.html" class="nav-item-link nav-active" aria-label="Hành trình cứu nước và tiểu sử Bác">
+                <i class="bi bi-compass-fill"></i> Hành trình & Tiểu sử
+            </a>
+        </div>
+
+        <div class="topbar-actions">
+            <button id="toggle-mute" title="Tắt/Bật âm thanh" aria-label="Bật hoặc tắt âm thanh" class="icon-btn" style="border-radius: 50%; width: 36px; height: 36px;">
+                <i class="bi bi-volume-up-fill"></i>
+            </button>
+            <div class="avatar" title="Nhóm 3 - SE1876"><i class="bi bi-person-circle" style="font-size: 1.5rem;"></i></div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div id="odyssey-app">
+        
+        <!-- SECTION 1: MAP ODYSSEY -->
+        <section class="odyssey-section">
+            <div class="section-header">
+                <h2>Hành trình cứu nước (1911 - 1941)</h2>
+                <p>Khám phá bản đồ số mô phỏng cuộc bôn ba tìm đường cứu nước của người thanh niên yêu nước Nguyễn Tất Thành.</p>
+            </div>
+
+            <div class="map-layout-grid">
+                <!-- Map Container -->
+                <div class="map-container-box">
+                    <svg id="odyssey-svg" viewBox="0 0 1000 550" width="100%" height="100%"></svg>
+                    
+                    <div class="map-overlay-controls">
+                        <button id="autoplay-btn" class="tour-btn" aria-label="Bắt đầu chạy tự động hành trình">
+                            <i class="bi bi-play-circle-fill"></i> Bắt đầu hành trình tự động
+                        </button>
+                        <button id="reset-map-btn" class="tour-btn secondary" aria-label="Căn giữa bản đồ">
+                            <i class="bi bi-crosshair"></i> Căn giữa
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Info Card Panel -->
+                <div class="info-card-panel" id="journey-info-panel">
+                    <div class="milestone-badge" id="info-badge">Mốc 1 / 7</div>
+                    
+                    <div class="milestone-title-wrap">
+                        <h3 id="info-location">Bến Nhà Rồng (Sài Gòn)</h3>
+                        <span class="milestone-year" id="info-year">1911</span>
+                    </div>
+
+                    <div class="milestone-image-wrap">
+                        <img id="info-image" src="assets/journey_nharong_1911.png" alt="Minh họa lịch sử">
+                    </div>
+
+                    <div class="milestone-content">
+                        <p id="info-desc">Mô tả chi tiết sự kiện lịch sử ở địa điểm này sẽ hiển thị ở đây.</p>
+                        <div class="ideology-link-box">
+                            <span class="title"><i class="bi bi-lightbulb-fill"></i> Giá trị tư tưởng:</span>
+                            <p id="info-ideology">Mối liên hệ của sự kiện với sự hình thành tư tưởng Hồ Chí Minh.</p>
+                        </div>
+                    </div>
+
+                    <div class="panel-nav-actions">
+                        <button id="prev-milestone" class="nav-btn" disabled aria-label="Mốc trước đó">
+                            <i class="bi bi-arrow-left"></i> Trước đó
+                        </button>
+                        <button id="next-milestone" class="nav-btn" aria-label="Mốc tiếp theo">
+                            Tiếp theo <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: BIOGRAPHY TIMELINE -->
+        <section class="biography-section">
+            <div class="section-header">
+                <h2>Tiểu sử Chủ tịch Hồ Chí Minh</h2>
+                <p>Khái quát cuộc đời cách mạng vĩ đại và di sản trường tồn của Người đối với dân tộc Việt Nam.</p>
+            </div>
+
+            <div class="biography-timeline">
+                <div class="timeline-line"></div>
+
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="time-header">1890 - 1911</div>
+                        <h3>Thời niên thiếu & Quyết chí cứu nước</h3>
+                        <p>Sinh ngày 19/5/1890 tại làng Chùa (Nam Đàn, Nghệ An). Người lớn lên trong hoàn cảnh mất nước, chứng kiến các phong trào yêu nước chống Pháp thất bại. Với trí tuệ thông minh và lòng căm thù giặc, Người quyết định đi ra nước ngoài tìm con đường cứu nước mới.</p>
+                        <blockquote class="timeline-quote">"Tôi muốn đi ra ngoài, xem nước Pháp và các nước khác làm như thế nào, rồi trở về giúp đồng bào ta."</blockquote>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="time-header">1911 - 1920</div>
+                        <h3>Tìm thấy con đường giải phóng</h3>
+                        <p>Đi qua nhiều nước châu Âu, châu Mỹ, châu Phi. Năm 1920 tại Pháp, Người đọc bản Sơ thảo Luận cương của Lênin về vấn đề dân tộc và thuộc địa, tìm thấy con đường giải phóng dân tộc duy nhất đúng đắn: <strong>Cách mạng vô sản</strong>. Người tham gia sáng lập Đảng Cộng sản Pháp.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="time-header">1920 - 1941</div>
+                        <h3>Truyền bá lý luận & Chuẩn bị tổ chức</h3>
+                        <p>Bôn ba tại Liên Xô, Trung Quốc, Thái Lan. Người viết các tác phẩm cách mạng kinh điển như <i>Bản án chế độ thực dân Pháp</i>, <i>Đường Kách mệnh</i>. Ngày 3/2/1930, Người chủ trì thành lập <strong>Đảng Cộng sản Việt Nam</strong>, thống nhất lực lượng tiên phong lãnh đạo cách mạng.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="time-header">1941 - 1945</div>
+                        <h3>Trở về Tổ quốc & Giành độc lập</h3>
+                        <p>Năm 1941, Người trở về nước trực tiếp lãnh đạo cách mạng. Ngày 2/9/1945, tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh thay mặt Chính phủ lâm thời đọc bản <strong>Tuyên ngôn Độc lập</strong>, khai sinh ra nước Việt Nam Dân chủ Cộng hòa.</p>
+                        <div class="timeline-image">
+                            <img src="assets/ho_chi_minh_1945.png" alt="Bác Hồ đọc Tuyên ngôn Độc lập">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="time-header">1945 - 1969</div>
+                        <h3>Kháng chiến kiến quốc & Di sản muôn đời</h3>
+                        <p>Lãnh đạo toàn dân vượt qua 9 năm kháng chiến chống Pháp (đỉnh cao là Điện Biên Phủ 1954) và cuộc đấu tranh giải phóng miền Nam thống nhất đất nước. Trước khi qua đời (2/9/1969), Người để lại bản <strong>Di chúc</strong> lịch sử chứa chan tình yêu thương đồng bào, đồng chí và niềm tin thắng lợi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="js/odyssey.js"></script>
+</body>
+
+</html>

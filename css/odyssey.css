@@ -1,0 +1,615 @@
+/* ═══ ODYSSEY APP LAYOUT ════════════════════════════════════ */
+#odyssey-app {
+    padding: 94px 30px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.odyssey-section,
+.biography-section {
+    width: 100%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ═══ MAP GRID & PANEL ══════════════════════════════════════ */
+.map-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.map-container-box {
+    background: rgba(13, 15, 20, 0.7);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+#odyssey-svg {
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    background: radial-gradient(circle at center, #131722 0%, #080a0f 100%);
+}
+
+#odyssey-svg:active {
+    cursor: grabbing;
+}
+
+/* Map overlay buttons */
+.map-overlay-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.tour-btn {
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-family: var(--font);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+}
+
+.tour-btn:hover {
+    background: var(--gold);
+    color: #0b0d17;
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(250, 204, 21, 0.3);
+}
+
+.tour-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+}
+
+.tour-btn i {
+    font-size: 1.1rem;
+}
+
+/* ── Info Card Panel ── */
+.info-card-panel {
+    background: linear-gradient(135deg, rgba(120, 10, 10, 0.4), rgba(20, 5, 5, 0.85));
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255, 215, 0, 0.03);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.info-card-panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    box-shadow: 0 0 10px var(--gold);
+}
+
+.info-card-panel::-webkit-scrollbar {
+    display: none;
+}
+
+.milestone-badge {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--gold);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.milestone-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.milestone-title-wrap h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.35;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.milestone-year {
+    background: var(--gold);
+    color: #0b0d17;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 4px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(250, 204, 21, 0.2);
+    flex-shrink: 0;
+}
+
+.milestone-image-wrap {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.milestone-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.milestone-image-wrap:hover img {
+    transform: scale(1.05);
+}
+
+.milestone-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1;
+}
+
+.milestone-content p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+    text-align: justify;
+}
+
+.ideology-link-box {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--gold);
+    padding: 12px 14px;
+    border-radius: 0 10px 10px 0;
+}
+
+.ideology-link-box .title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.ideology-link-box p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+    text-align: left;
+}
+
+.panel-nav-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.panel-nav-actions .nav-btn {
+    flex: 1;
+    padding: 12px 0;
+    border-radius: 10px;
+    border: none;
+    font-family: var(--font);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+    background: linear-gradient(135deg, #5c6bc0, #26c6da);
+    color: #fff;
+}
+
+.panel-nav-actions .nav-btn:hover:not(:disabled) {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.panel-nav-actions .nav-btn:disabled {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.25);
+    cursor: default;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ═══ MAP SVG ELEMENTS ═════════════════════════════════════ */
+.continent-shape {
+    fill: #1a2233;
+    stroke: #2e3b54;
+    stroke-width: 1.5;
+    transition: fill 0.3s;
+}
+
+.continent-shape.visited {
+    fill: #222d42;
+    stroke: #ffd700;
+    stroke-opacity: 0.3;
+}
+
+.map-grid-line {
+    stroke: rgba(255, 255, 255, 0.03);
+    stroke-width: 0.5;
+}
+
+.travel-path {
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 2.5;
+    stroke-dasharray: 6 4;
+    stroke-opacity: 0.7;
+    animation: path-flow 25s linear infinite;
+}
+
+@keyframes path-flow {
+    to {
+        stroke-dashoffset: -100;
+    }
+}
+
+.map-marker {
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.map-marker circle.marker-dot {
+    fill: var(--gold);
+    stroke: #0b0d17;
+    stroke-width: 2.5;
+    transition: all 0.3s;
+}
+
+.map-marker circle.marker-pulse {
+    fill: none;
+    stroke: var(--gold);
+    stroke-dasharray: none;
+    stroke-width: 2;
+    transform-origin: center;
+    animation: marker-glow 2s infinite ease-out;
+}
+
+@keyframes marker-glow {
+    0% {
+        r: 6px;
+        opacity: 0.9;
+        stroke-width: 2;
+    }
+    100% {
+        r: 26px;
+        opacity: 0;
+        stroke-width: 0.5;
+    }
+}
+
+.map-marker:hover {
+    transform: scale(1.4);
+}
+
+.map-marker:hover circle.marker-dot {
+    fill: #fff;
+    box-shadow: 0 0 15px var(--gold);
+}
+
+.map-marker.active circle.marker-dot {
+    fill: #fff;
+    stroke: #b91c1c;
+    stroke-width: 3px;
+    r: 10px;
+}
+
+.map-marker.active circle.marker-pulse {
+    stroke: #fff;
+    animation-duration: 1.2s;
+}
+
+.marker-text {
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 700;
+    fill: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+}
+
+/* ═══ BIOGRAPHY TIMELINE ═══════════════════════════════════ */
+.biography-timeline {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 50px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold) 0%, rgba(250, 204, 21, 0.1) 100%);
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.3);
+}
+
+.timeline-item {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid #0b0d17;
+    box-shadow: 0 0 10px var(--gold);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.timeline-card {
+    width: 45%;
+    background: rgba(26, 30, 53, 0.85);
+    border: 1px solid var(--border);
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(10px);
+}
+
+.timeline-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(250, 204, 21, 0.15);
+}
+
+.timeline-card:hover + .timeline-dot {
+    background: #fff;
+    transform: translateX(-50%) scale(1.3);
+}
+
+.timeline-item.left {
+    justify-content: flex-start;
+}
+
+.timeline-item.right {
+    justify-content: flex-end;
+}
+
+.timeline-item.left .timeline-card {
+    text-align: right;
+}
+
+.timeline-item.left .timeline-card::after {
+    content: "";
+    position: absolute;
+    right: -8px;
+    top: 32px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 8px solid var(--border);
+}
+
+.timeline-item.right .timeline-card::after {
+    content: "";
+    position: absolute;
+    left: -8px;
+    top: 32px;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid var(--border);
+}
+
+.time-header {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.timeline-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.35;
+}
+
+.timeline-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0;
+}
+
+.timeline-quote {
+    margin-top: 15px;
+    border-left: 3px solid var(--gold);
+    padding-left: 14px;
+    color: var(--gold);
+    font-style: italic;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.timeline-item.left .timeline-quote {
+    border-left: none;
+    border-right: 3px solid var(--gold);
+    padding-left: 0;
+    padding-right: 14px;
+    text-align: right;
+}
+
+.timeline-image {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timeline-image img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ═══ RESPONSIVE ODYSSEY ══════════════════════════════════ */
+@media (max-width: 1024px) {
+    #odyssey-app {
+        padding: 84px 20px 40px;
+        gap: 40px;
+    }
+    
+    .map-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .info-card-panel {
+        max-height: none;
+        height: auto;
+    }
+    
+    .milestone-image-wrap {
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .biography-timeline {
+        padding-left: 20px;
+    }
+
+    .timeline-line {
+        left: 20px;
+        transform: none;
+    }
+
+    .timeline-dot {
+        left: 20px;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        justify-content: flex-end;
+    }
+
+    .timeline-card {
+        width: calc(100% - 40px);
+        text-align: left !important;
+    }
+
+    .timeline-item.left .timeline-card::after,
+    .timeline-item.right .timeline-card::after {
+        left: -8px;
+        right: auto;
+        border-left: none;
+        border-right: 8px solid var(--border);
+    }
+    
+    .timeline-item.left .timeline-quote {
+        border-right: none;
+        border-left: 3px solid var(--gold);
+        padding-right: 0;
+        padding-left: 14px;
+        text-align: left;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .map-container-box {
+        min-height: 380px;
+    }
+    
+    .milestone-image-wrap {
+        height: 180px;
+    }
+}

@@ -136,8 +136,30 @@ body {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+.nav-item-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+}
+
+.nav-item-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+}
+
 /* ── Nav active underline indicator ── */
-.nav-item[data-branch]::after {
+.nav-item[data-branch]::after,
+.nav-item-link::after {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -152,12 +174,15 @@ body {
 }
 
 .nav-item[data-branch]:hover::after,
-.nav-item[data-branch].nav-active::after {
+.nav-item[data-branch].nav-active::after,
+.nav-item-link:hover::after,
+.nav-item-link.nav-active::after {
     transform: translateX(-50%) scaleX(1);
 }
 
 /* Active nav item highlight */
-.nav-item.nav-active {
+.nav-item.nav-active,
+.nav-item-link.nav-active {
     color: #fff;
     background: rgba(255, 255, 255, 0.1);
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
