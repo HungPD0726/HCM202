@@ -41,27 +41,38 @@
             <div class="nav-sep">•</div>
             <div class="nav-item" data-branch="ch6">Chương VI</div>
             <div class="nav-sep-alt"></div>
-            <div class="nav-item nav-item-timeline" id="nav-timeline-btn">
+            <div class="nav-item nav-item-timeline" id="nav-timeline-btn" tabindex="0" role="button" aria-label="Mở mục lục chương">
                 <i class="bi bi-grid-3x3-gap-fill"></i> Mục lục
+            </div>
+        </div>
+
+        <!-- Progress Pill -->
+        <div class="progress-pill">
+            <div class="pill-dot" aria-hidden="true"></div>
+            <div class="pill-text">Đã học: <span id="learned-count">0</span>/<span id="total-count">0</span></div>
+            <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" id="prog-fill" style="width: 0%"></div>
             </div>
         </div>
 
         <div class="topbar-actions">
             <div class="search-box">
-                <button id="search-btn-toggle" title="Tìm kiếm">
+                <button id="search-btn-toggle" title="Tìm kiếm" aria-label="Tìm kiếm khái niệm">
                     <i class="bi bi-search"></i>
                 </button>
                 <div id="search-input-container">
-                    <input type="text" id="search-input" placeholder="Tìm kiếm khái niệm...">
+                    <input type="text" id="search-input" placeholder="Tìm kiếm khái niệm..." aria-label="Nhập từ khóa cần tìm kiếm">
                 </div>
                 <div id="search-results"></div>
             </div>
 
-            <button class="quiz-btn" id="quiz-open-btn">
+            <button class="quiz-btn" id="quiz-open-btn" aria-label="Mở ôn tập Quiz trắc nghiệm">
                 <i class="bi bi-patch-question-fill sm-icon"></i> Quiz
             </button>
 
-            <div class="avatar" id="team-avatar-btn" title="Giới thiệu thành viên & Dự án"><i class="bi bi-person-circle" style="font-size: 1.5rem;"></i></div>
+            <div class="avatar" id="team-avatar-btn" role="button" tabindex="0" title="Giới thiệu thành viên & Dự án" aria-label="Giới thiệu thành viên và thông tin dự án">
+                <i class="bi bi-person-circle" style="font-size: 1.5rem;" aria-hidden="true"></i>
+            </div>
         </div>
     </div>
 
@@ -83,18 +94,24 @@
             <svg id="mindmap-svg"></svg>
             <canvas id="particle-canvas"></canvas>
             <div class="controls">
-                <button id="zoom-in" title="Phóng to"><i class="bi bi-plus"></i></button>
-                <button id="zoom-out" title="Thu nhỏ"><i class="bi bi-dash"></i></button>
-                <button id="reset-view" title="Căn giữa"><i class="bi bi-crosshair"></i></button>
-                <button id="toggle-all" title="Hiện toàn bộ các nhánh"><i class="bi bi-eye"></i></button>
+                <button id="zoom-in" title="Phóng to" aria-label="Phóng to sơ đồ tư duy"><i class="bi bi-plus"></i></button>
+                <button id="zoom-out" title="Thu nhỏ" aria-label="Thu nhỏ sơ đồ tư duy"><i class="bi bi-dash"></i></button>
+                <button id="reset-view" title="Căn giữa" aria-label="Căn giữa sơ đồ tư duy"><i class="bi bi-crosshair"></i></button>
+                <button id="toggle-all" title="Hiện toàn bộ các nhánh" aria-label="Hiển thị hoặc ẩn tất cả các nhánh"><i class="bi bi-eye"></i></button>
+                <button id="toggle-mute" title="Tắt/Bật âm thanh" aria-label="Bật hoặc tắt âm thanh"><i class="bi bi-volume-up-fill"></i></button>
             </div>
         </div>
 
         <!-- DETAIL PANEL -->
         <div id="detail-panel">
-            <button class="close-btn" id="close-panel" title="Đóng panel"><i class="bi bi-x"></i></button>
+            <button class="close-btn" id="close-panel" title="Đóng panel" aria-label="Đóng bảng chi tiết"><i class="bi bi-x"></i></button>
             <div class="panel-header-horiz">
                 <h2 id="topic-title">Tên chủ đề</h2>
+                <div id="study-status-container">
+                    <span id="study-status-badge" class="status-not-started">
+                        <i class="bi bi-book-half"></i> Chưa học
+                    </span>
+                </div>
             </div>
             <div class="horiz-divider"></div>
             <div class="panel-grid">
@@ -114,7 +131,7 @@
     <!-- QUIZ MODAL -->
     <div id="quiz-overlay">
         <div id="quiz-box">
-            <button class="quiz-close-top" title="Đóng cửa sổ"><i class="bi bi-x"></i></button>
+            <button class="quiz-close-top" title="Đóng cửa sổ" aria-label="Đóng cửa sổ trắc nghiệm"><i class="bi bi-x"></i></button>
             <div id="quiz-start">
                 <h2>Thi thử HCM202 - Tư tưởng Hồ Chí Minh</h2>
                 <p>Chọn chủ đề để bắt đầu. Hệ thống sẽ chọn ngẫu nhiên <strong>20 câu mỗi lần</strong>.</p>
@@ -179,7 +196,7 @@
     <!-- MEMBER & PROJECT INTRO MODAL -->
     <div id="intro-overlay">
         <div id="intro-box">
-            <button class="intro-close-top" title="Đóng" id="intro-close-btn-top"><i class="bi bi-x"></i></button>
+            <button class="intro-close-top" title="Đóng" id="intro-close-btn-top" aria-label="Đóng bảng giới thiệu"><i class="bi bi-x"></i></button>
             <div class="intro-header">
                 <h2>GIỚI THIỆU DỰ ÁN & THÀNH VIÊN</h2>
                 <p>Nhóm 3 — Lớp SE1876</p>
@@ -192,7 +209,7 @@
                             <div class="member-avatar">DH</div>
                             <div class="member-info">
                                 <span class="member-name">Phạm Duy Hưng</span>
-                                <span class="member-role">Nhóm trưởng</span>
+                                <span class="member-role">Thành viên</span>
                             </div>
                         </div>
                         <div class="member-card">
@@ -232,17 +249,21 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div>
                     <h3 class="intro-section-title"><i class="bi bi-info-circle-fill"></i> Giới thiệu dự án</h3>
                     <div class="project-desc-box">
-                        <p><strong>HCM202 — Tư tưởng Hồ Chí Minh</strong> hệ thống hóa những quan điểm cơ bản của Hồ Chí Minh về cách mạng Việt Nam. Nội dung project được sắp xếp theo 6 chương của giáo trình 2019, kết hợp trọng tâm ôn tập trong đề cương lý thuyết.</p>
-                        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Mục tiêu học tập: nắm khái niệm, cơ sở hình thành, nội dung cốt lõi và giá trị vận dụng của Tư tưởng Hồ Chí Minh trong học tập, rèn luyện và thực tiễn xây dựng đất nước.</p>
+                        <p><strong>HCM202 — Tư tưởng Hồ Chí Minh</strong> hệ thống hóa những quan điểm cơ bản của Hồ Chí
+                            Minh về cách mạng Việt Nam. Nội dung project được sắp xếp theo 6 chương của giáo trình 2019,
+                            kết hợp trọng tâm ôn tập trong đề cương lý thuyết.</p>
+                        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">Mục tiêu học tập: nắm khái niệm,
+                            cơ sở hình thành, nội dung cốt lõi và giá trị vận dụng của Tư tưởng Hồ Chí Minh trong học
+                            tập, rèn luyện và thực tiễn xây dựng đất nước.</p>
                     </div>
                 </div>
             </div>
             <div class="intro-actions">
-                <button class="start-btn" id="intro-view-map-btn" style="padding: 10px 20px; font-size: 0.9rem;">
+                <button class="start-btn" id="intro-view-map-btn" style="padding: 10px 20px; font-size: 0.9rem;" aria-label="Đóng bảng giới thiệu và xem sơ đồ tư duy">
                     <i class="bi bi-diagram-3-fill"></i> Xem sơ đồ dự án
                 </button>
             </div>
@@ -250,8 +271,9 @@
     </div>
 
     <!-- AI CHATBOT -->
-    <div id="ai-chatbot-btn" title="Hỏi đáp cùng AI">
-        <img src="assets/macimg.png" alt="AI Chat" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+    <div id="ai-chatbot-btn" role="button" tabindex="0" title="Hỏi đáp cùng AI" aria-label="Mở cửa sổ trò chuyện với trợ lý AI">
+        <img src="assets/macimg.png" alt="AI Chat"
+            style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
     </div>
 
     <div id="ai-chat-window" class="chat-hidden">
@@ -260,14 +282,14 @@
                 <i class="bi bi-robot"></i>
                 <span>Trợ lý AI - HCM202</span>
             </div>
-            <button id="close-chat"><i class="bi bi-x-lg"></i></button>
+            <button id="close-chat" aria-label="Đóng cửa sổ chat"><i class="bi bi-x-lg"></i></button>
         </div>
         <div id="chat-messages">
             <div class="message system">Chào bạn! Tôi có thể giúp gì cho bạn về học phần Tư tưởng Hồ Chí Minh?</div>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="chat-input" placeholder="Nhập câu hỏi của bạn...">
-            <button id="send-chat"><i class="bi bi-send-fill"></i></button>
+            <input type="text" id="chat-input" placeholder="Nhập câu hỏi của bạn..." aria-label="Nhập câu hỏi cho trợ lý AI">
+            <button id="send-chat" aria-label="Gửi câu hỏi"><i class="bi bi-send-fill"></i></button>
         </div>
     </div>
 

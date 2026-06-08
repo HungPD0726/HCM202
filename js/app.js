@@ -23,6 +23,174 @@ document.addEventListener('DOMContentLoaded', async function () {
   var teamAvatarBtn = document.getElementById('team-avatar-btn');
   var introCloseBtnTop = document.getElementById('intro-close-btn-top');
   var introViewMapBtn = document.getElementById('intro-view-map-btn');
+  var toggleMuteBtn = document.getElementById('toggle-mute');
+
+  // ── Performance & Preferences ──────────────────────────────────────
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isMobile = window.innerWidth <= 768;
+
+  // ── Secure HTML Escaping & Formatting ──────────────────────────────
+  function escapeHTML(str) {
+    if (typeof str !== 'string') return '';
+    return str.replace(/[&<>'"]/g, function (tag) {
+      return {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag;
+    });
+  }
+
+  function formatSafeHTML(text) {
+    if (typeof text !== 'string') return '';
+    var escaped = escapeHTML(text);
+    escaped = escaped
+      .replace(/&lt;br\s*\/?&gt;/gi, '<br>')
+      .replace(/&lt;b&gt;(.*?)&lt;\/b&gt;/gi, '<strong>$1</strong>')
+      .replace(/&lt;strong&gt;(.*?)&lt;\/strong&gt;/gi, '<strong>$1</strong>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    return escaped;
+  }
+
+  // ── Study status & countdown state ─────────────────────────────────
+  var currentStudyNode = null;
+  var studyCountdownInterval = null;
+  var studyTimeRemaining = 0;
+
+  function updateStudyStatusUI(nodeId) {
+    var badge = document.getElementById('study-status-badge');
+    if (!badge) return;
+    
+    if (studiedNodes.has(nodeId)) {
+      badge.className = 'status-completed';
+      badge.innerHTML = '<i class="bi bi-patch-check-fill"></i> Đã hoàn thành';
+    } else if (currentStudyNode === nodeId && studyTimeRemaining > 0) {
+      badge.className = 'status-studying';
+      badge.innerHTML = '<i class="bi bi-hourglass-split"></i> Đang học (' + studyTimeRemaining + 's)';
+    } else {
+      badge.className = 'status-not-started';
+      badge.innerHTML = '<i class="bi bi-book-half"></i> Chưa học';
+    }
+  }
+
+  // ── Sound effects system (Web Audio API) ──────────────────────────
+  var isMuted = localStorage.getItem('hcm202_muted') === 'true';
+  var audioCtx = null;
+
+  function initAudio() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+  }
+
+  function playTone(freq, startTime, duration, type) {
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    
+    osc.type = type || 'sine';
+    osc.frequency.setValueAtTime(freq, startTime);
+    
+    gain.gain.setValueAtTime(0.2, startTime);
+    gain.gain.exponentialRampToValueAtTime(0.005, startTime + duration);
+    
+    osc.start(startTime);
+    osc.stop(startTime + duration);
+  }
+
+  function playClickSound() {
+    if (isMuted) return;
+    try {
+      initAudio();
+      var osc = audioCtx.createOscillator();
+      var gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.type = 'sine';
+      var now = audioCtx.currentTime;
+      osc.frequency.setValueAtTime(600, now);
+      osc.frequency.exponentialRampToValueAtTime(100, now + 0.08);
+      
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+      
+      osc.start(now);
+      osc.stop(now + 0.08);
+    } catch (e) {
+      console.warn('Audio click error:', e);
+    }
+  }
+
+  function playChimeSound() {
+    if (isMuted) return;
+    try {
+      initAudio();
+      var now = audioCtx.currentTime;
+      playTone(523.25, now, 0.15, 'sine');
+      playTone(659.25, now + 0.1, 0.35, 'sine');
+    } catch (e) {
+      console.warn('Audio chime error:', e);
+    }
+  }
+
+  function playFanfareSound(success) {
+    if (isMuted) return;
+    try {
+      initAudio();
+      var now = audioCtx.currentTime;
+      if (success) {
+        playTone(523.25, now, 0.12, 'triangle');
+        playTone(659.25, now + 0.12, 0.12, 'triangle');
+        playTone(783.99, now + 0.24, 0.12, 'triangle');
+        playTone(1046.50, now + 0.36, 0.45, 'triangle');
+      } else {
+        playTone(392.00, now, 0.15, 'sine');
+        playTone(311.13, now + 0.15, 0.15, 'sine');
+        playTone(293.66, now + 0.3, 0.45, 'sine');
+      }
+    } catch (e) {
+      console.warn('Audio fanfare error:', e);
+    }
+  }
+
+  function updateMuteButtonUI() {
+    if (toggleMuteBtn) {
+      var icon = toggleMuteBtn.querySelector('i');
+      if (icon) {
+        if (isMuted) {
+          icon.className = 'bi bi-volume-mute-fill';
+          toggleMuteBtn.title = 'Bật âm thanh';
+          toggleMuteBtn.classList.add('muted');
+        } else {
+          icon.className = 'bi bi-volume-up-fill';
+          toggleMuteBtn.title = 'Tắt âm thanh';
+          toggleMuteBtn.classList.remove('muted');
+        }
+      }
+    }
+  }
+
+  if (toggleMuteBtn) {
+    updateMuteButtonUI();
+    toggleMuteBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      isMuted = !isMuted;
+      localStorage.setItem('hcm202_muted', isMuted);
+      updateMuteButtonUI();
+      if (!isMuted) {
+        playClickSound();
+      }
+    });
+  }
 
   // ── D3 setup ──────────────────────────────────────────────────────
   var svg = d3.select(svgEl);
@@ -100,40 +268,104 @@ document.addEventListener('DOMContentLoaded', async function () {
   var nodeTimers = {};
   var allNodeCount = 0;
 
-  function markStudied(nodeId) {
+  function markStudied(nodeId, playSound) {
+    if (!nodeId) return;
     if (studiedNodes.has(nodeId)) return;
     studiedNodes.add(nodeId);
+    
+    try {
+      localStorage.setItem('hcm202_studied_nodes', JSON.stringify(Array.from(studiedNodes)));
+    } catch (e) {
+      console.warn('Save progress failed:', e);
+    }
+
     var n = studiedNodes.size;
     if (learnedCount) learnedCount.textContent = n;
-    var pct = (n / allNodeCount) * 100;
+    var pct = allNodeCount > 0 ? (n / allNodeCount) * 100 : 0;
     if (progFill) progFill.style.width = pct + '%';
+
+    if (playSound) {
+      playChimeSound();
+    }
+
     g.selectAll('.node').each(function (d) {
-      if (d.data.id === nodeId) {
+      if (d && d.data && d.data.id === nodeId) {
         d3.select(this).select('.studied-ring').style('opacity', 1);
       }
     });
+
+    updateStudyStatusUI(nodeId);
   }
 
   function startStudyTimer(nodeId) {
-    if (studiedNodes.has(nodeId)) return;
-    if (nodeTimers[nodeId]) return;
+    if (!nodeId) return;
+    if (studiedNodes.has(nodeId)) {
+      updateStudyStatusUI(nodeId);
+      return;
+    }
+    
+    if (studyCountdownInterval) {
+      clearInterval(studyCountdownInterval);
+      studyCountdownInterval = null;
+    }
+    if (nodeTimers[nodeId]) {
+      clearTimeout(nodeTimers[nodeId]);
+      delete nodeTimers[nodeId];
+    }
+
+    currentStudyNode = nodeId;
+    studyTimeRemaining = 15;
+    updateStudyStatusUI(nodeId);
+
     nodeTimers[nodeId] = setTimeout(function () {
-      markStudied(nodeId);
+      if (studyCountdownInterval) {
+        clearInterval(studyCountdownInterval);
+        studyCountdownInterval = null;
+      }
+      markStudied(nodeId, true);
       delete nodeTimers[nodeId];
       g.selectAll('.node').each(function (d) {
-        if (d.data.id === nodeId) {
+        if (d && d.data && d.data.id === nodeId) {
           var c = d3.select(this).select('circle');
-          gsap.to(c.node(), {
-            attr: { r: nodeRadius(d.data) * 1.4 }, duration: 0.25, ease: 'power2.out',
-            onComplete: function () { gsap.to(c.node(), { attr: { r: nodeRadius(d.data) }, duration: 0.4, ease: 'elastic.out(1,0.4)' }); }
-          });
+          if (c && c.node()) {
+            var durationVal = prefersReducedMotion ? 0.01 : 0.25;
+            gsap.to(c.node(), {
+              attr: { r: nodeRadius(d.data) * 1.4 }, duration: durationVal, ease: 'power2.out',
+              onComplete: function () { 
+                gsap.to(c.node(), { attr: { r: nodeRadius(d.data) }, duration: prefersReducedMotion ? 0.01 : 0.4, ease: 'elastic.out(1,0.4)' }); 
+              }
+            });
+          }
         }
       });
     }, 15000);
+
+    studyCountdownInterval = setInterval(function () {
+      studyTimeRemaining--;
+      if (studyTimeRemaining <= 0) {
+        clearInterval(studyCountdownInterval);
+        studyCountdownInterval = null;
+      } else {
+        if (currentStudyNode === nodeId) {
+          updateStudyStatusUI(nodeId);
+        }
+      }
+    }, 1000);
   }
 
   function stopStudyTimer(nodeId) {
-    if (nodeTimers[nodeId]) { clearTimeout(nodeTimers[nodeId]); delete nodeTimers[nodeId]; }
+    if (!nodeId) return;
+    if (studyCountdownInterval) {
+      clearInterval(studyCountdownInterval);
+      studyCountdownInterval = null;
+    }
+    if (nodeTimers[nodeId]) {
+      clearTimeout(nodeTimers[nodeId]);
+      delete nodeTimers[nodeId];
+    }
+    if (currentStudyNode === nodeId) {
+      currentStudyNode = null;
+    }
   }
 
   // ── Zoom ──────────────────────────────────────────────────────────
@@ -155,6 +387,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     allNodeCount = d3.hierarchy(mapData).descendants().length - 1;
     if (totalCount) totalCount.textContent = allNodeCount;
+
+    try {
+      var savedProgress = localStorage.getItem('hcm202_studied_nodes');
+      if (savedProgress) {
+        var parsed = JSON.parse(savedProgress);
+        if (Array.isArray(parsed)) {
+          parsed.forEach(function (id) {
+            markStudied(id, false);
+          });
+        }
+      }
+    } catch (e) {
+      console.warn('Load progress failed:', e);
+    }
 
     buildMap(mapData);
     gsap.to(loader, { opacity: 0, duration: 0.5, onComplete: function () { loader.style.display = 'none'; openIntro(); } });
@@ -416,6 +662,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   function onNodeClick(event, d, targetEl) {
     if (event && event.stopPropagation) event.stopPropagation();
+    playClickSound();
     var nodeColor = colorOf(d) || '#5c6bc0';
     var el = targetEl || (event ? event.currentTarget : null);
 
@@ -424,7 +671,11 @@ document.addEventListener('DOMContentLoaded', async function () {
       var sx = event.clientX - containerRect.left;
       var sy = event.clientY - containerRect.top;
       var cnt = d.depth === 0 ? 100 : d.depth === 1 ? 75 : 50;
-      spawnParticles(sx, sy, nodeColor, cnt);
+      if (isMobile) cnt = Math.floor(cnt * 0.4);
+      if (prefersReducedMotion) cnt = 0;
+      if (cnt > 0) {
+        spawnParticles(sx, sy, nodeColor, cnt);
+      }
     }
 
     emitRings(d.x_cart, d.y_cart, nodeColor, d.depth, d.data);
@@ -603,26 +854,35 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   // ── Detail panel ──────────────────────────────────────────────────
   function showDetails(data) {
-    document.getElementById('topic-title').textContent = (data.name || '').replace('\n', ' ');
+    var titleEl = document.getElementById('topic-title');
+    if (titleEl) {
+      titleEl.textContent = (data.name || '').replace('\n', ' ');
+    }
+    
     let contentParts = [];
-    if (data.description) contentParts.push(data.description);
-    if (data.vietnam_example) contentParts.push(data.vietnam_example);
-    if (data.meaning) contentParts.push(data.meaning);
+    if (data.description) contentParts.push(formatSafeHTML(data.description));
+    if (data.vietnam_example) contentParts.push(formatSafeHTML(data.vietnam_example));
+    if (data.meaning) contentParts.push(formatSafeHTML(data.meaning));
 
     const contentEl = document.getElementById('topic-content');
     if (contentEl) {
       contentEl.innerHTML = contentParts.join('<br><br>').replace(/\n/g, '<br>');
     }
 
-    detailPanel.classList.add('open');
-    document.body.classList.add('detail-open');
-    gsap.fromTo(detailPanel, { y: '120%', x: '0%' }, { y: '0%', x: '0%', duration: 0.6, ease: 'expo.out' });
+    if (detailPanel) {
+      detailPanel.classList.add('open');
+      document.body.classList.add('detail-open');
+      var durationVal = prefersReducedMotion ? 0.01 : 0.6;
+      gsap.fromTo(detailPanel, { y: '120%', x: '0%' }, { y: '0%', x: '0%', duration: durationVal, ease: 'expo.out' });
+    }
 
-    // Position timeline next to the open detail panel and update active mark
+    if (data && data.id) {
+      updateStudyStatusUI(data.id);
+    }
+
     try {
       if (timelineContainer) timelineContainer.classList.add('at-panel');
       if (data && data.id) updateTimeline(data.id);
-      // ensure the active timeline mark is visible
       setTimeout(function () {
         var active = document.querySelector('.timeline-mark.active');
         if (active && active.scrollIntoView) {
@@ -635,18 +895,21 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
 
   function hideDetails() {
-    if (!detailPanel.classList.contains('open')) return;
+    if (detailPanel && !detailPanel.classList.contains('open')) return;
     if (currentNodeId) stopStudyTimer(currentNodeId);
-    timelineContainer.classList.remove('at-panel');
-    gsap.to(detailPanel, {
-      y: '120%',
-      duration: 0.5,
-      ease: 'power2.in',
-      onComplete: function () {
-        detailPanel.classList.remove('open');
-        document.body.classList.remove('detail-open');
-      }
-    });
+    if (timelineContainer) timelineContainer.classList.remove('at-panel');
+    if (detailPanel) {
+      var durationVal = prefersReducedMotion ? 0.01 : 0.5;
+      gsap.to(detailPanel, {
+        y: '120%',
+        duration: durationVal,
+        ease: 'power2.in',
+        onComplete: function () {
+          detailPanel.classList.remove('open');
+          document.body.classList.remove('detail-open');
+        }
+      });
+    }
   }
 
   closePanelBtn.addEventListener('click', hideDetails);
@@ -761,7 +1024,10 @@ document.addEventListener('DOMContentLoaded', async function () {
       var matches = all.filter(function (n) { return n.data.name.toLowerCase().includes(q) || (n.data.description || '').toLowerCase().includes(q); }).slice(0, 6);
       if (!matches.length) { searchResults.classList.remove('visible'); return; }
       searchResults.innerHTML = matches.map(function (m) {
-        return '<div class="sr-item" data-name="' + m.data.name.replace(/"/g, '') + '"><div class="sri-name">' + m.data.name.replace('\n', ' ') + '</div><div class="sri-path">' + m.path + '</div></div>';
+        var cleanName = escapeHTML(m.data.name.replace('\n', ' '));
+        var cleanPath = escapeHTML(m.path);
+        var attrName = escapeHTML(m.data.name.replace(/"/g, ''));
+        return '<div class="sr-item" data-name="' + attrName + '"><div class="sri-name">' + cleanName + '</div><div class="sri-path">' + cleanPath + '</div></div>';
       }).join('');
       searchResults.classList.add('visible');
       searchResults.querySelectorAll('.sr-item').forEach(function (item) {
@@ -882,24 +1148,45 @@ document.addEventListener('DOMContentLoaded', async function () {
   var timerInterval = null;
   var elapsed = 0;
   var bestScore = null;
+  var originalQuizHTML = "";
+  if (quizStart) {
+    originalQuizHTML = quizStart.innerHTML;
+  }
 
   function openQuiz() {
-    quizOverlay.classList.add('show');
+    if (quizOverlay) {
+      quizOverlay.classList.add('show');
+    }
     showQuizStart();
   }
 
   function closeQuiz() {
-    quizOverlay.classList.remove('show');
+    if (quizOverlay) {
+      quizOverlay.classList.remove('show');
+    }
     clearInterval(timerInterval);
   }
 
   function showQuizStart() {
-    quizStart.style.display = 'block';
-    quizQScreen.style.display = 'none';
-    quizResultsDiv.style.display = 'none';
+    if (quizStart) {
+      quizStart.innerHTML = originalQuizHTML;
+      quizStart.style.display = 'block';
+    }
+    if (quizQScreen) quizQScreen.style.display = 'none';
+    if (quizResultsDiv) quizResultsDiv.style.display = 'none';
   }
+  window.showQuizStart = showQuizStart;
 
   async function startQuizByTopic(topic) {
+    if (!quizStart) return;
+
+    quizStart.innerHTML = `
+      <div class="quiz-loading-container" style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 0;">
+        <div class="spinner"></div>
+        <p style="margin-top:20px;color:var(--gold);font-weight:600;">Đang tải ngân hàng câu hỏi...</p>
+      </div>
+    `;
+
     let qData = [];
     try {
       if (topic === 'all') {
@@ -912,12 +1199,26 @@ document.addEventListener('DOMContentLoaded', async function () {
       }
     } catch (err) {
       console.error('Quiz load error:', err);
-      alert('Không thể tải ngân hàng câu hỏi cho chủ đề này.');
+      quizStart.innerHTML = `
+        <div class="quiz-error-container" style="text-align:center;padding:60px 20px;">
+          <i class="bi bi-exclamation-triangle-fill" style="font-size:3rem;color:#ef5350;"></i>
+          <h3 style="margin-top:16px;color:#fff;font-weight:700;">Tải dữ liệu thất bại</h3>
+          <p style="color:var(--text-muted);margin:12px 0 24px;">Không thể tải dữ liệu câu hỏi từ máy chủ. Vui lòng kiểm tra kết nối mạng của bạn.</p>
+          <button class="start-btn" onclick="showQuizStart()">Thử lại</button>
+        </div>
+      `;
       return;
     }
 
     if (!qData || !qData.length) {
-      alert('Ngân hàng câu hỏi trống.');
+      quizStart.innerHTML = `
+        <div class="quiz-error-container" style="text-align:center;padding:60px 20px;">
+          <i class="bi bi-folder-minus" style="font-size:3rem;color:var(--gold);"></i>
+          <h3 style="margin-top:16px;color:#fff;font-weight:700;">Ngân hàng câu hỏi trống</h3>
+          <p style="color:var(--text-muted);margin:12px 0 24px;">Không tìm thấy câu hỏi nào cho chương này.</p>
+          <button class="start-btn" onclick="showQuizStart()">Quay lại</button>
+        </div>
+      `;
       return;
     }
 
@@ -980,8 +1281,10 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (!isCorrect) opts[q.answer].classList.add('correct');
 
     var explEl = document.getElementById('quiz-explain');
-    explEl.innerHTML = '<i class="bi bi-lightbulb-fill"></i> ' + (q.explain || '');
-    explEl.style.display = 'block';
+    if (explEl) {
+      explEl.innerHTML = '<i class="bi bi-lightbulb-fill"></i> ' + formatSafeHTML(q.explain || '');
+      explEl.style.display = 'block';
+    }
 
     document.getElementById('quiz-next-btn').disabled = false;
   }
@@ -1010,6 +1313,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 
     var pct = Math.round((correct / currentQuiz.length) * 100);
+    playFanfareSound(pct >= 50);
     if (bestScore === null || correct > bestScore) bestScore = correct;
 
     var scoreClass = pct >= 80 ? 'score-green' : pct >= 50 ? 'score-orange' : 'score-red';
@@ -1033,13 +1337,18 @@ document.addEventListener('DOMContentLoaded', async function () {
     currentQuiz.forEach(function (q, i) {
       var ua = userAnswers[i];
       var ok = ua === q.answer;
+      var escQuestion = escapeHTML(q.question);
+      var escUserOpt = escapeHTML(q.options[ua]);
+      var escCorrectOpt = escapeHTML(q.options[q.answer]);
+      var formattedExplain = formatSafeHTML(q.explain);
+
       html += '<div class="result-item ' + (ok ? 'correct' : 'wrong') + '">'
-        + '<div class="ri-q">' + (i + 1) + '. ' + q.question + '</div>'
+        + '<div class="ri-q">' + (i + 1) + '. ' + escQuestion + '</div>'
         + '<div class="ri-your" style="color:' + (ok ? 'var(--green)' : '#ef5350') + '">'
-        + (ok ? '<i class="bi bi-check-circle-fill"></i>' : '<i class="bi bi-x-circle-fill"></i>') + ' Bạn chọn: ' + String.fromCharCode(65 + ua) + '. ' + q.options[ua]
+        + (ok ? '<i class="bi bi-check-circle-fill"></i>' : '<i class="bi bi-x-circle-fill"></i>') + ' Bạn chọn: ' + String.fromCharCode(65 + ua) + '. ' + escUserOpt
         + '</div>';
-      if (!ok) html += '<div class="ri-correct"><i class="bi bi-check-circle"></i> Đáp án đúng: ' + String.fromCharCode(65 + q.answer) + '. ' + q.options[q.answer] + '</div>';
-      if (q.explain) html += '<div class="ri-explain"><i class="bi bi-lightbulb-fill"></i> ' + q.explain + '</div>';
+      if (!ok) html += '<div class="ri-correct"><i class="bi bi-check-circle"></i> Đáp án đúng: ' + String.fromCharCode(65 + q.answer) + '. ' + escCorrectOpt + '</div>';
+      if (q.explain) html += '<div class="ri-explain"><i class="bi bi-lightbulb-fill"></i> ' + formattedExplain + '</div>';
       html += '</div>';
     });
 
@@ -1079,7 +1388,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       });
       const data = await response.json();
       if (data.content) {
-        adviceEl.innerHTML = data.content.replace(/\n/g, '<br>');
+        adviceEl.innerHTML = formatSafeHTML(data.content).replace(/\n/g, '<br>');
       } else {
         adviceEl.textContent = "AI hiện không thể đưa ra phân tích chi tiết. Tuy nhiên, bạn nên tập trung xem lại các câu hỏi đã trả lời sai.";
       }
@@ -1141,6 +1450,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (e.key === 'Escape') {
       if (quizOverlay && quizOverlay.classList.contains('show')) closeQuiz();
       if (introOverlay && introOverlay.classList.contains('show')) closeIntro();
+      if (detailPanel && detailPanel.classList.contains('open')) hideDetails();
     }
   });
 
@@ -1209,16 +1519,9 @@ document.addEventListener('DOMContentLoaded', async function () {
       if (id) msg.id = id;
       
       if (role === 'system') {
-        // Clean and format AI response
         let formatted = text.trim();
-        // Remove leading *** markers
         formatted = formatted.replace(/^\*+\s*/, '');
-        // Convert **bold** to strong
-        formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        // Convert newlines to br
-        formatted = formatted.replace(/\n/g, '<br>');
-        
-        msg.innerHTML = formatted;
+        msg.innerHTML = formatSafeHTML(formatted).replace(/\n/g, '<br>');
       } else {
         msg.textContent = text;
       }
