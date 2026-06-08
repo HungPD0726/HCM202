@@ -307,6 +307,14 @@ document.addEventListener('DOMContentLoaded', function () {
       infoImage.alt = d.name;
     }
 
+    // Trigger GSAP fade slide-up animation for premium content changes
+    if (typeof gsap !== 'undefined' && autoZoom !== 'load') {
+      gsap.fromTo('#journey-info-panel > *', 
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.35, stagger: 0.06, ease: "power2.out" }
+      );
+    }
+
     // Update buttons disabled status
     if (prevBtn) prevBtn.disabled = (index === 0);
     if (nextBtn) {
@@ -441,6 +449,14 @@ document.addEventListener('DOMContentLoaded', function () {
       drawerOverlay.classList.add('open');
       drawerOverlay.classList.add('show');
       drawerOverlay.setAttribute('aria-hidden', 'false');
+    }
+
+    // Trigger GSAP stagger slide-in animation for timeline cards
+    if (typeof gsap !== 'undefined') {
+      gsap.fromTo('.bio-time-card', 
+        { opacity: 0, x: 40 },
+        { opacity: 1, x: 0, duration: 0.45, stagger: 0.08, ease: "power2.out", delay: 0.15 }
+      );
     }
   }
 
