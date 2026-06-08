@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
       id: "saigon",
       name: "Bến Nhà Rồng (Sài Gòn)",
       year: "1911",
-      x: 720, y: 380,
+      lon: 106.7068, lat: 10.7628,
       image: "assets/nguyễn tất thành ra đi tìm đường cứu nước.jpg",
       desc: "Ngày 5/6/1911, người thanh niên Nguyễn Tất Thành (lấy tên là Văn Ba) đã xuống tàu Đô đốc Latouche-Tréville rời Bến cảng Nhà Rồng ra đi tìm con đường cứu nước giải phóng dân tộc.",
       ideology: "Khởi đầu cho hành trình thực tiễn, định hình ý chí tìm con đường độc lập dân tộc tự chủ hoàn toàn mới."
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
       id: "london",
       name: "Luân Đôn (Vương Quốc Anh)",
       year: "1913 - 1917",
-      x: 380, y: 150,
+      lon: -0.1278, lat: 51.5074,
       image: "assets/Bác Hồ ở Boston.jpg",
       desc: "Tại Anh, Người đã làm nhiều công việc vất vả như cào tuyết, quét dọn, phụ bếp ở khách sạn Carlton. Việc sống và lao động giúp Người thấu hiểu hơn về giai cấp vô sản và nhân dân lao động ở nước bản xứ.",
       ideology: "Giúp củng cố lập trường giai cấp, thấu suốt bản chất bóc lột của chủ nghĩa đế quốc Anh ngay tại trung tâm chế độ."
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
       id: "paris",
       name: "Paris (Cộng Hòa Pháp)",
       year: "1917 - 1923",
-      x: 410, y: 175,
+      lon: 2.3522, lat: 48.8566,
       image: "assets/Nguyễn Ái Quốc thành lập đảng cộng sản Pháp.jpg",
       desc: "Năm 1919, Người gửi bản Yêu sách của nhân dân An Nam đến Hội nghị Versailles. Tháng 7/1920, Người tiếp cận Luận cương của Lênin về dân tộc và thuộc địa. Tháng 12/1920, Người bỏ phiếu sáng lập Đảng Cộng sản Pháp.",
       ideology: "Mốc quan trọng nhất: Chuyển biến lập trường từ chủ nghĩa yêu nước sang chủ nghĩa cộng sản khoa học."
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
       id: "moscow",
       name: "Mát-xcơ-va (Liên Xô)",
       year: "1923 - 1924",
-      x: 520, y: 130,
+      lon: 37.6173, lat: 55.7558,
       image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
       desc: "Người đến Liên Xô học tập lý luận và hoạt động thực tiễn tại Quốc tế Cộng sản, dự Đại hội V Quốc tế Cộng sản, viết nhiều bài báo định hình tư tưởng thuộc địa.",
       ideology: "Hoàn thiện thế giới quan Mác - Lênin và chuẩn bị hệ thống lý luận giải phóng dân tộc cho cách mạng Việt Nam."
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
       id: "guangzhou",
       name: "Quảng Châu (Trung Quốc)",
       year: "1924 - 1927",
-      x: 750, y: 310,
+      lon: 113.2644, lat: 23.1291,
       image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
       desc: "Người thành lập Hội Việt Nam Cách mạng Thanh niên (1925), ra báo Thanh niên, mở các lớp chính trị huấn luyện cán bộ, biên soạn tập bài giảng thành cuốn sách Đường Kách mệnh (1927).",
       ideology: "Chuẩn bị về mặt chính trị, tư tưởng và tổ chức cán bộ, định hình vai trò hạt nhân lãnh đạo của Đảng."
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
       id: "hongkong",
       name: "Hồng Kông",
       year: "1930",
-      x: 770, y: 330,
+      lon: 114.1694, lat: 22.3193,
       image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
       desc: "Từ ngày 6/1 đến 7/2/1930, Người chủ trì Hội nghị thống nhất các tổ chức cộng sản trong nước tại Cửu Long (Hồng Kông) để thành lập Đảng Cộng sản Việt Nam.",
       ideology: "Kết quả tất yếu của quá trình kết hợp chủ nghĩa Mác - Lênin với phong trào yêu nước và phong trào công nhân."
@@ -186,12 +186,27 @@ document.addEventListener('DOMContentLoaded', function () {
       id: "pacbo",
       name: "Pac Bó (Cao Bằng)",
       year: "1941",
-      x: 710, y: 350,
+      lon: 106.1883, lat: 22.8633,
       image: "assets/Bác Hồ tại Pác bó.jpg",
       desc: "Ngày 28/1/1941, Người vượt biên giới Việt - Trung trở về Tổ quốc sau 30 năm bôn ba. Người sống và làm việc tại hang Cốc Bó (Pác Bó, Cao Bằng) để trực tiếp lãnh đạo chuẩn bị tổng khởi nghĩa.",
       ideology: "Hiện thực hóa lý luận cách mạng trực tiếp vào điều kiện cụ thể trong nước, chuẩn bị cho Cách mạng Tháng Tám."
     }
   ];
+
+  // Projection setup for detailed geographic world map
+  var projection = d3.geoMercator()
+    .scale(300)
+    .center([55, 34])
+    .translate([500, 260]);
+
+  var geoPath = d3.geoPath().projection(projection);
+
+  // Convert longitude and latitude to x,y SVG coordinates
+  milestones.forEach(function (m) {
+    var projected = projection([m.lon, m.lat]);
+    m.x = projected[0];
+    m.y = projected[1];
+  });
 
   var currentIndex = 0;
   var autoplayTimer = null;
@@ -215,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mainG.append('line').attr('class', 'map-grid-line').attr('x1', 0).attr('y1', j).attr('x2', 1000).attr('y2', j);
   }
 
-  // 2. Draw continent shapes (Abstract schematic shapes)
+  // 2. Draw fallback schematic shapes first
   var continents = [
     // Eurasia & Africa
     { path: "M 280,120 L 460,80 L 580,70 L 880,100 L 920,250 L 820,380 L 650,420 L 500,320 L 330,300 Z", label: "Á - Âu" },
@@ -227,12 +242,30 @@ document.addEventListener('DOMContentLoaded', function () {
     { path: "M 800,420 L 900,420 L 900,480 L 800,480 Z", label: "Châu Đại Dương" }
   ];
 
-  mainG.selectAll('.continent-shape')
+  var continentPaths = mainG.selectAll('.continent-shape')
     .data(continents)
     .enter()
     .append('path')
     .attr('class', 'continent-shape')
     .attr('d', function (d) { return d.path; });
+
+  // Async load local detailed world map GeoJSON
+  d3.json('data/world.geojson').then(function (geoData) {
+    // Remove the schematic continent shapes
+    continentPaths.remove();
+
+    // Draw the detailed geographic countries
+    mainG.selectAll('.continent-shape')
+      .data(geoData.features)
+      .enter()
+      .insert('path', '.travel-path') // Insert countries behind travel lines and markers
+      .attr('class', 'continent-shape')
+      .attr('d', geoPath)
+      .append('title')
+      .text(function (d) { return d.properties.name; });
+  }).catch(function (err) {
+    console.warn('Failed to load local world.geojson. Schematic fallback is kept.', err);
+  });
 
   // 3. Draw Connecting Paths
   // Generate curve coordinates between milestones
