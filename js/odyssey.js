@@ -428,16 +428,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ── Biography Drawer Controls ─────────────────────────────────────
+  var heroOpenBioBtn = document.getElementById('hero-open-bio');
+
   function openDrawer() {
     playClickSound();
-    if (bioDrawer) bioDrawer.classList.add('open');
-    if (drawerOverlay) drawerOverlay.classList.add('open');
+    document.body.classList.add('drawer-open');
+    if (bioDrawer) {
+      bioDrawer.classList.add('open');
+      bioDrawer.setAttribute('aria-hidden', 'false');
+    }
+    if (drawerOverlay) {
+      drawerOverlay.classList.add('open');
+      drawerOverlay.classList.add('show');
+      drawerOverlay.setAttribute('aria-hidden', 'false');
+    }
   }
 
   function closeDrawer() {
     playClickSound();
-    if (bioDrawer) bioDrawer.classList.remove('open');
-    if (drawerOverlay) drawerOverlay.classList.remove('open');
+    document.body.classList.remove('drawer-open');
+    if (bioDrawer) {
+      bioDrawer.classList.remove('open');
+      bioDrawer.setAttribute('aria-hidden', 'true');
+    }
+    if (drawerOverlay) {
+      drawerOverlay.classList.remove('open');
+      drawerOverlay.classList.remove('show');
+      drawerOverlay.setAttribute('aria-hidden', 'true');
+    }
   }
 
   if (toggleBioBtn) {
@@ -448,6 +466,13 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         openDrawer();
       }
+    });
+  }
+
+  if (heroOpenBioBtn) {
+    heroOpenBioBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      openDrawer();
     });
   }
 
