@@ -10,7 +10,7 @@
       "Chỉ cần cải cách văn hóa là đủ"
     ],
     "answer": 0,
-    "explain": "Độc lập, tự do là quyền thiêng liêng, bất khả xâm phạm của mọi dân tộc"
+    "explain": "Hồ Chí Minh khẳng định không có gì quý hơn độc lập, tự do."
   },
   {
     "id": 302,
@@ -23,7 +23,7 @@
       "Chỉ thay đổi tên gọi nhà nước"
     ],
     "answer": 1,
-    "explain": "Tự do, hạnh phúc của nhân dân"
+    "explain": "Độc lập thật sự phải đem lại quyền làm chủ và hạnh phúc cho nhân dân."
   },
   {
     "id": 303,
@@ -36,7 +36,7 @@
       "Con đường dựa hoàn toàn vào ngoại bang"
     ],
     "answer": 2,
-    "explain": "Con đường cách mạng vô sản"
+    "explain": "Người khẳng định cách mạng giải phóng dân tộc phải đi theo con đường cách mạng vô sản."
   },
   {
     "id": 304,
@@ -49,7 +49,7 @@
       "Đảng Cộng sản lãnh đạo"
     ],
     "answer": 3,
-    "explain": "Đảng Cộng sản lãnh đạo"
+    "explain": "Đảng Cộng sản là nhân tố lãnh đạo quyết định thắng lợi."
   },
   {
     "id": 305,
@@ -62,7 +62,7 @@
       "Chỉ quân đội nước ngoài"
     ],
     "answer": 0,
-    "explain": "Toàn dân tộc, trong đó công nông là gốc"
+    "explain": "Cách mạng là sự nghiệp của toàn dân, công nông là lực lượng gốc."
   },
   {
     "id": 306,
@@ -75,7 +75,7 @@
       "Không liên quan đến phong trào thế giới"
     ],
     "answer": 1,
-    "explain": "Có thể chủ động giành thắng lợi trước"
+    "explain": "Đây là luận điểm sáng tạo về tính chủ động của cách mạng thuộc địa."
   },
   {
     "id": 307,
@@ -88,7 +88,7 @@
       "Chủ nghĩa xã hội không cần độc lập dân tộc"
     ],
     "answer": 2,
-    "explain": "Gắn bó chặt chẽ với nhau"
+    "explain": "Độc lập dân tộc gắn liền với chủ nghĩa xã hội là con đường cách mạng Việt Nam."
   },
   {
     "id": 308,
@@ -101,7 +101,7 @@
       "Có độc lập mới có điều kiện xây dựng xã hội mới do nhân dân làm chủ"
     ],
     "answer": 3,
-    "explain": "Có độc lập mới có điều kiện xây dựng xã hội mới do nhân dân làm chủ"
+    "explain": "Độc lập tạo điều kiện chính trị để xây dựng chủ nghĩa xã hội."
   },
   {
     "id": 309,
@@ -114,7 +114,7 @@
       "Tách văn hóa khỏi đời sống"
     ],
     "answer": 0,
-    "explain": "Làm cho nhân dân được ấm no, tự do, hạnh phúc"
+    "explain": "Mục tiêu xã hội chủ nghĩa là nâng cao đời sống và quyền làm chủ của nhân dân."
   },
   {
     "id": 310,
@@ -127,7 +127,7 @@
       "Văn hóa bị xem nhẹ"
     ],
     "answer": 1,
-    "explain": "Nhân dân là chủ và làm chủ"
+    "explain": "Xã hội xã hội chủ nghĩa là xã hội do nhân dân làm chủ."
   },
   {
     "id": 311,
@@ -140,7 +140,7 @@
       "Sự phụ thuộc bên ngoài"
     ],
     "answer": 2,
-    "explain": "Con người và nhân dân"
+    "explain": "Hồ Chí Minh coi con người, nhân dân là động lực quyết định."
   },
   {
     "id": 312,
@@ -153,7 +153,7 @@
       "Một nước nông nghiệp lạc hậu, bỏ qua chế độ tư bản chủ nghĩa"
     ],
     "answer": 3,
-    "explain": "Một nước nông nghiệp lạc hậu, bỏ qua chế độ tư bản chủ nghĩa"
+    "explain": "Đặc điểm lớn nhất là quá độ từ nước nông nghiệp lạc hậu, không kinh qua tư bản chủ nghĩa."
   },
   {
     "id": 313,
@@ -166,7 +166,7 @@
       "Không cần phát huy sáng kiến"
     ],
     "answer": 0,
-    "explain": "Phù hợp điều kiện Việt Nam, tránh rập khuôn máy móc"
+    "explain": "Xây dựng chủ nghĩa xã hội phải sáng tạo và phù hợp thực tiễn Việt Nam."
   },
   {
     "id": 314,
@@ -179,7 +179,7 @@
       "Xóa bỏ dân chủ"
     ],
     "answer": 1,
-    "explain": "Xây dựng chế độ do nhân dân lao động làm chủ"
+    "explain": "Mục tiêu chính trị là bảo đảm quyền làm chủ của nhân dân."
   },
   {
     "id": 315,
@@ -192,7 +192,7 @@
       "Không cần sản xuất"
     ],
     "answer": 2,
-    "explain": "Phát triển kinh tế, nâng cao đời sống nhân dân"
+    "explain": "Kinh tế phát triển là cơ sở nâng cao đời sống và xây dựng xã hội mới."
   },
   {
     "id": 316,
@@ -205,7 +205,7 @@
       "Cần kết hợp hài hòa để tạo động lực"
     ],
     "answer": 3,
-    "explain": "Cần kết hợp hài hòa để tạo động lực"
+    "explain": "Kết hợp lợi ích là một động lực quan trọng trong xây dựng xã hội mới."
   },
   {
     "id": 317,
@@ -218,7 +218,7 @@
       "Tách Đảng khỏi nhân dân"
     ],
     "answer": 0,
-    "explain": "Kết hợp xây dựng với cải tạo, lấy xây dựng làm chính"
+    "explain": "Hồ Chí Minh nhấn mạnh xây dựng là nhiệm vụ chủ yếu, lâu dài."
   },
   {
     "id": 318,
@@ -231,7 +231,7 @@
       "Sự biệt lập với thế giới"
     ],
     "answer": 1,
-    "explain": "Chủ nghĩa quốc tế trong sáng"
+    "explain": "Yêu nước chân chính gắn với đoàn kết quốc tế và tiến bộ nhân loại."
   },
   {
     "id": 319,
@@ -244,7 +244,7 @@
       "Tư tưởng thỏa hiệp thuộc địa"
     ],
     "answer": 2,
-    "explain": "Giá trị tối cao của độc lập dân tộc và tự do"
+    "explain": "Khẩu hiệu kết tinh tư tưởng về độc lập, tự do của Hồ Chí Minh."
   },
   {
     "id": 320,
@@ -257,6 +257,6 @@
       "Phải chủ động, sáng tạo, tự lực tự cường và tranh thủ sức mạnh quốc tế"
     ],
     "answer": 3,
-    "explain": "Phải chủ động, sáng tạo, tự lực tự cường và tranh thủ sức mạnh quốc tế"
+    "explain": "Người đề cao tự lực, chủ động đồng thời kết hợp sức mạnh thời đại."
   }
 ]

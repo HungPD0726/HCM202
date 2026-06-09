@@ -1,9 +1,9 @@
 {
   "id": "root",
-  "name": "TƯ TƯỞNG HỒ CHÍ MINH\nHCM202",
+  "name": "ĐƯỜNG KÁCH MỆNH\nHCM202",
   "level": 0,
   "icon": "assets/vietnam1.png",
-  "description": "<b>HCM202</b> - <b>Tư tưởng Hồ Chí Minh</b> hệ thống hóa những quan điểm cơ bản của Hồ Chí Minh về cách mạng Việt Nam. Nội dung project được sắp xếp theo 6 chương của giáo trình 2019, kết hợp trọng tâm ôn tập trong đề cương lý thuyết.",
+  "description": "<b>Đường Kách Mệnh</b> - Hệ thống học tập <b>HCM202 (Tư tưởng Hồ Chí Minh)</b>, hệ thống hóa những quan điểm cơ bản của Hồ Chí Minh về cách mạng Việt Nam. Nội dung project được sắp xếp theo 6 chương của giáo trình 2019, kết hợp trọng tâm ôn tập trong đề cương lý thuyết.",
   "vietnam_example": "",
   "meaning": "Mục tiêu học tập: nắm khái niệm, cơ sở hình thành, nội dung cốt lõi và giá trị vận dụng của Tư tưởng Hồ Chí Minh trong học tập, rèn luyện và thực tiễn xây dựng đất nước.",
   "children": [
@@ -14,7 +14,7 @@
       "level": 1,
       "color": "#22c55e",
       "icon": "assets/khoahoc.png",
-      "description": "Chương I giới thiệu những vấn đề nhập môn của học phần <b>Tư tưởng Hồ Chí Minh</b>: khái niệm, đối tượng nghiên cứu, phương pháp nghiên cứu và ý nghĩa học tập. Trọng tâm là hiểu <b>Tư tưởng Hồ Chí Minh</b> như một hệ thống quan điểm toàn diện, sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam.",
+      "description": "<b>Chương I</b> giới thiệu những vấn đề nhập môn của học phần Tư tưởng Hồ Chí Minh: khái niệm, đối tượng nghiên cứu, phương pháp nghiên cứu và ý nghĩa học tập. Trọng tâm là hiểu Tư tưởng Hồ Chí Minh như một hệ thống quan điểm toàn diện, sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam.",
       "vietnam_example": "",
       "meaning": "",
       "children": [
@@ -23,7 +23,7 @@
           "name": "Khái niệm Tư tưởng Hồ Chí Minh",
           "level": 2,
           "color": "#22c55e",
-          "description": "<b>Tư tưởng Hồ Chí Minh</b> là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam; là kết quả vận dụng, phát triển sáng tạo <b>chủ nghĩa Mác - Lênin</b> vào điều kiện cụ thể của nước ta; kế thừa truyền thống dân tộc và tinh hoa văn hóa nhân loại.",
+          "description": "Tư tưởng Hồ Chí Minh là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam; là kết quả vận dụng, phát triển sáng tạo chủ nghĩa Mác - Lênin vào điều kiện cụ thể của nước ta; kế thừa truyền thống dân tộc và tinh hoa văn hóa nhân loại.",
           "meaning": "",
           "children": [
             {
@@ -31,7 +31,7 @@
               "name": "Ý chính cần nhớ",
               "level": 3,
               "color": "#ca8a04",
-              "description": "<b>Tư tưởng Hồ Chí Minh</b> là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam; là kết quả vận dụng, phát triển sáng tạo <b>chủ nghĩa Mác - Lênin</b> vào điều kiện cụ thể của nước ta; kế thừa truyền thống dân tộc và tinh hoa văn hóa nhân loại.",
+              "description": "Tư tưởng Hồ Chí Minh là hệ thống quan điểm toàn diện và sâu sắc về những vấn đề cơ bản của cách mạng Việt Nam; là kết quả vận dụng, phát triển sáng tạo chủ nghĩa Mác - Lênin vào điều kiện cụ thể của nước ta; kế thừa truyền thống dân tộc và tinh hoa văn hóa nhân loại.",
               "meaning": ""
             },
             {
@@ -131,7 +131,7 @@
       "level": 1,
       "color": "#0ea5e9",
       "icon": "assets/vietnam.png",
-      "description": "Chương II làm rõ các cơ sở thực tiễn, cơ sở lý luận, nhân tố chủ quan và các giai đoạn hình thành, phát triển tư tưởng Hồ Chí Minh. Đây là chương nền để hiểu vì sao tư tưởng của Người vừa dân tộc, vừa khoa học, vừa cách mạng.",
+      "description": "<b>Chương II</b> làm rõ các cơ sở thực tiễn, cơ sở lý luận, nhân tố chủ quan và các giai đoạn hình thành, phát triển tư tưởng Hồ Chí Minh. Đây là chương nền để hiểu vì sao tư tưởng của Người vừa dân tộc, vừa khoa học, vừa cách mạng.",
       "vietnam_example": "",
       "meaning": "",
       "children": [
@@ -166,7 +166,7 @@
           "name": "Cơ sở lý luận",
           "level": 2,
           "color": "#0ea5e9",
-          "description": "<b>Tư tưởng Hồ Chí Minh</b> được hình thành từ <b>chủ nghĩa Mác - Lênin</b>, truyền thống tốt đẹp của dân tộc Việt Nam và tinh hoa văn hóa nhân loại. Trong đó, <b>chủ nghĩa Mác - Lênin</b> là cơ sở thế giới quan và phương pháp luận trực tiếp.",
+          "description": "Tư tưởng Hồ Chí Minh được hình thành từ chủ nghĩa Mác - Lênin, truyền thống tốt đẹp của dân tộc Việt Nam và tinh hoa văn hóa nhân loại. Trong đó, chủ nghĩa Mác - Lênin là cơ sở thế giới quan và phương pháp luận trực tiếp.",
           "meaning": "",
           "children": [
             {
@@ -174,7 +174,7 @@
               "name": "Ý chính cần nhớ",
               "level": 3,
               "color": "#ca8a04",
-              "description": "<b>Tư tưởng Hồ Chí Minh</b> được hình thành từ <b>chủ nghĩa Mác - Lênin</b>, truyền thống tốt đẹp của dân tộc Việt Nam và tinh hoa văn hóa nhân loại. Trong đó, <b>chủ nghĩa Mác - Lênin</b> là cơ sở thế giới quan và phương pháp luận trực tiếp.",
+              "description": "Tư tưởng Hồ Chí Minh được hình thành từ chủ nghĩa Mác - Lênin, truyền thống tốt đẹp của dân tộc Việt Nam và tinh hoa văn hóa nhân loại. Trong đó, chủ nghĩa Mác - Lênin là cơ sở thế giới quan và phương pháp luận trực tiếp.",
               "meaning": ""
             },
             {
@@ -218,7 +218,7 @@
           "name": "Quá trình phát triển",
           "level": 2,
           "color": "#0ea5e9",
-          "description": "<b>Tư tưởng Hồ Chí Minh</b> hình thành và phát triển qua nhiều giai đoạn: trước năm 1911, tìm đường cứu nước; 1911-1920, tìm thấy con đường cách mạng vô sản; 1921-1930, hình thành cơ bản tư tưởng về cách mạng Việt Nam; 1930-1969, bổ sung và phát triển toàn diện.",
+          "description": "Tư tưởng Hồ Chí Minh hình thành và phát triển qua nhiều giai đoạn: trước năm 1911, tìm đường cứu nước; 1911-1920, tìm thấy con đường cách mạng vô sản; 1921-1930, hình thành cơ bản tư tưởng về cách mạng Việt Nam; 1930-1969, bổ sung và phát triển toàn diện.",
           "meaning": "",
           "children": [
             {
@@ -226,7 +226,7 @@
               "name": "Ý chính cần nhớ",
               "level": 3,
               "color": "#ca8a04",
-              "description": "<b>Tư tưởng Hồ Chí Minh</b> hình thành và phát triển qua nhiều giai đoạn: trước năm 1911, tìm đường cứu nước; 1911-1920, tìm thấy con đường cách mạng vô sản; 1921-1930, hình thành cơ bản tư tưởng về cách mạng Việt Nam; 1930-1969, bổ sung và phát triển toàn diện.",
+              "description": "Tư tưởng Hồ Chí Minh hình thành và phát triển qua nhiều giai đoạn: trước năm 1911, tìm đường cứu nước; 1911-1920, tìm thấy con đường cách mạng vô sản; 1921-1930, hình thành cơ bản tư tưởng về cách mạng Việt Nam; 1930-1969, bổ sung và phát triển toàn diện.",
               "meaning": ""
             },
             {
@@ -248,7 +248,7 @@
       "level": 1,
       "color": "#f97316",
       "icon": "assets/vietnam1.png",
-      "description": "Chương III trình bày tư tưởng Hồ Chí Minh về <b>độc lập dân tộc</b>, cách mạng giải phóng dân tộc, <b>chủ nghĩa xã hội</b> và con đường đi lên <b>chủ nghĩa xã hội</b> ở Việt Nam. Trọng tâm là mối quan hệ <b>độc lập dân tộc</b> gắn liền với <b>chủ nghĩa xã hội</b>.",
+      "description": "<b>Chương III</b> trình bày tư tưởng Hồ Chí Minh về độc lập dân tộc, cách mạng giải phóng dân tộc, chủ nghĩa xã hội và con đường đi lên chủ nghĩa xã hội ở Việt Nam. Trọng tâm là mối quan hệ độc lập dân tộc gắn liền với chủ nghĩa xã hội.",
       "vietnam_example": "",
       "meaning": "",
       "children": [
@@ -309,7 +309,7 @@
           "name": "Chủ nghĩa xã hội",
           "level": 2,
           "color": "#f97316",
-          "description": "Theo Hồ Chí Minh, <b>chủ nghĩa xã hội</b> là xã hội do nhân dân làm chủ, có kinh tế phát triển, văn hóa - đạo đức tiến bộ, con người được giải phóng, cuộc sống ấm no, tự do, hạnh phúc.",
+          "description": "Theo Hồ Chí Minh, chủ nghĩa xã hội là xã hội do nhân dân làm chủ, có kinh tế phát triển, văn hóa - đạo đức tiến bộ, con người được giải phóng, cuộc sống ấm no, tự do, hạnh phúc.",
           "meaning": "",
           "children": [
             {
@@ -317,7 +317,7 @@
               "name": "Ý chính cần nhớ",
               "level": 3,
               "color": "#ca8a04",
-              "description": "Theo Hồ Chí Minh, <b>chủ nghĩa xã hội</b> là xã hội do nhân dân làm chủ, có kinh tế phát triển, văn hóa - đạo đức tiến bộ, con người được giải phóng, cuộc sống ấm no, tự do, hạnh phúc.",
+              "description": "Theo Hồ Chí Minh, chủ nghĩa xã hội là xã hội do nhân dân làm chủ, có kinh tế phát triển, văn hóa - đạo đức tiến bộ, con người được giải phóng, cuộc sống ấm no, tự do, hạnh phúc.",
               "meaning": ""
             },
             {
@@ -335,7 +335,7 @@
           "name": "Con đường đi lên CNXH ở Việt Nam",
           "level": 2,
           "color": "#f97316",
-          "description": "Việt Nam quá độ lên <b>chủ nghĩa xã hội</b> từ một nước nông nghiệp lạc hậu, bỏ qua chế độ tư bản chủ nghĩa. Quá trình này phải phù hợp điều kiện cụ thể, phát huy động lực con người, kết hợp cải tạo với xây dựng.",
+          "description": "Việt Nam quá độ lên chủ nghĩa xã hội từ một nước nông nghiệp lạc hậu, bỏ qua chế độ tư bản chủ nghĩa. Quá trình này phải phù hợp điều kiện cụ thể, phát huy động lực con người, kết hợp cải tạo với xây dựng.",
           "meaning": "",
           "children": [
             {
@@ -343,7 +343,7 @@
               "name": "Ý chính cần nhớ",
               "level": 3,
               "color": "#ca8a04",
-              "description": "Việt Nam quá độ lên <b>chủ nghĩa xã hội</b> từ một nước nông nghiệp lạc hậu, bỏ qua chế độ tư bản chủ nghĩa. Quá trình này phải phù hợp điều kiện cụ thể, phát huy động lực con người, kết hợp cải tạo với xây dựng.",
+              "description": "Việt Nam quá độ lên chủ nghĩa xã hội từ một nước nông nghiệp lạc hậu, bỏ qua chế độ tư bản chủ nghĩa. Quá trình này phải phù hợp điều kiện cụ thể, phát huy động lực con người, kết hợp cải tạo với xây dựng.",
               "meaning": ""
             },
             {
@@ -365,7 +365,7 @@
       "level": 1,
       "color": "#a855f7",
       "icon": "assets/map.png",
-      "description": "Chương IV tập trung vào tư tưởng Hồ Chí Minh về xây dựng <b>Đảng Cộng sản Việt Nam</b> cầm quyền và xây dựng Nhà nước kiểu mới của nhân dân, do nhân dân, vì nhân dân. Đây là nội dung trực tiếp liên quan đến vai trò lãnh đạo, quản lý và phục vụ nhân dân.",
+      "description": "<b>Chương IV</b> tập trung vào tư tưởng Hồ Chí Minh về xây dựng Đảng Cộng sản Việt Nam cầm quyền và xây dựng Nhà nước kiểu mới của nhân dân, do nhân dân, vì nhân dân. Đây là nội dung trực tiếp liên quan đến vai trò lãnh đạo, quản lý và phục vụ nhân dân.",
       "vietnam_example": "",
       "meaning": "",
       "children": [
@@ -374,7 +374,7 @@
           "name": "Đảng Cộng sản Việt Nam",
           "level": 2,
           "color": "#a855f7",
-          "description": "Đảng là nhân tố hàng đầu quyết định thắng lợi của cách mạng Việt Nam. Đảng phải lấy <b>chủ nghĩa Mác - Lênin</b> làm nền tảng, gắn bó với nhân dân, có đường lối đúng, tổ chức chặt chẽ và đạo đức cách mạng trong sáng.",
+          "description": "Đảng là nhân tố hàng đầu quyết định thắng lợi của cách mạng Việt Nam. Đảng phải lấy chủ nghĩa Mác - Lênin làm nền tảng, gắn bó với nhân dân, có đường lối đúng, tổ chức chặt chẽ và đạo đức cách mạng trong sáng.",
           "meaning": "",
           "children": [
             {
@@ -382,7 +382,7 @@
               "name": "Ý chính cần nhớ",
               "level": 3,
               "color": "#ca8a04",
-              "description": "Đảng là nhân tố hàng đầu quyết định thắng lợi của cách mạng Việt Nam. Đảng phải lấy <b>chủ nghĩa Mác - Lênin</b> làm nền tảng, gắn bó với nhân dân, có đường lối đúng, tổ chức chặt chẽ và đạo đức cách mạng trong sáng.",
+              "description": "Đảng là nhân tố hàng đầu quyết định thắng lợi của cách mạng Việt Nam. Đảng phải lấy chủ nghĩa Mác - Lênin làm nền tảng, gắn bó với nhân dân, có đường lối đúng, tổ chức chặt chẽ và đạo đức cách mạng trong sáng.",
               "meaning": ""
             },
             {
@@ -452,7 +452,7 @@
           "name": "Cán bộ và pháp quyền",
           "level": 2,
           "color": "#a855f7",
-          "description": "Cán bộ, công chức là công bộc của dân, phải <b>cần, kiệm, liêm, chính, chí công vô tư</b>. Nhà nước phải quản lý bằng Hiến pháp, pháp luật, đồng thời kết hợp pháp luật với đạo đức và giáo dục.",
+          "description": "Cán bộ, công chức là công bộc của dân, phải cần, kiệm, liêm, chính, chí công vô tư. Nhà nước phải quản lý bằng Hiến pháp, pháp luật, đồng thời kết hợp pháp luật với đạo đức và giáo dục.",
           "meaning": "",
           "children": [
             {
@@ -460,7 +460,7 @@
               "name": "Ý chính cần nhớ",
               "level": 3,
               "color": "#ca8a04",
-              "description": "Cán bộ, công chức là công bộc của dân, phải <b>cần, kiệm, liêm, chính, chí công vô tư</b>. Nhà nước phải quản lý bằng Hiến pháp, pháp luật, đồng thời kết hợp pháp luật với đạo đức và giáo dục.",
+              "description": "Cán bộ, công chức là công bộc của dân, phải cần, kiệm, liêm, chính, chí công vô tư. Nhà nước phải quản lý bằng Hiến pháp, pháp luật, đồng thời kết hợp pháp luật với đạo đức và giáo dục.",
               "meaning": ""
             },
             {
@@ -482,7 +482,7 @@
       "level": 1,
       "color": "#eab308",
       "icon": "assets/vietnam.png",
-      "description": "Chương V làm rõ <b>đại đoàn kết toàn dân tộc</b> là chiến lược cơ bản, lâu dài, quyết định thành công của cách mạng; đồng thời phân tích <b>đoàn kết quốc tế</b> và sự kết hợp sức mạnh dân tộc với sức mạnh thời đại.",
+      "description": "<b>Chương V</b> làm rõ đại đoàn kết toàn dân tộc là chiến lược cơ bản, lâu dài, quyết định thành công của cách mạng; đồng thời phân tích đoàn kết quốc tế và sự kết hợp sức mạnh dân tộc với sức mạnh thời đại.",
       "vietnam_example": "",
       "meaning": "",
       "children": [
@@ -599,7 +599,7 @@
       "level": 1,
       "color": "#ef4444",
       "icon": "assets/macimg.png",
-      "description": "Chương VI trình bày tư tưởng Hồ Chí Minh về văn hóa, đạo đức và con người. Nội dung trọng tâm là xây dựng nền văn hóa mới, đạo đức cách mạng và con người Việt Nam phát triển toàn diện.",
+      "description": "<b>Chương VI</b> trình bày tư tưởng Hồ Chí Minh về văn hóa, đạo đức và con người. Nội dung trọng tâm là xây dựng nền văn hóa mới, đạo đức cách mạng và con người Việt Nam phát triển toàn diện.",
       "vietnam_example": "",
       "meaning": "",
       "children": [
@@ -634,7 +634,7 @@
           "name": "Tư tưởng về đạo đức",
           "level": 2,
           "color": "#ef4444",
-          "description": "Đạo đức là gốc của người cách mạng. Những chuẩn mực cơ bản gồm trung với nước, hiếu với dân; <b>cần, kiệm, liêm, chính, chí công vô tư</b>; thương yêu con người; tinh thần quốc tế trong sáng.",
+          "description": "Đạo đức là gốc của người cách mạng. Những chuẩn mực cơ bản gồm trung với nước, hiếu với dân; cần, kiệm, liêm, chính, chí công vô tư; thương yêu con người; tinh thần quốc tế trong sáng.",
           "meaning": "",
           "children": [
             {
@@ -642,7 +642,7 @@
               "name": "Ý chính cần nhớ",
               "level": 3,
               "color": "#ca8a04",
-              "description": "Đạo đức là gốc của người cách mạng. Những chuẩn mực cơ bản gồm trung với nước, hiếu với dân; <b>cần, kiệm, liêm, chính, chí công vô tư</b>; thương yêu con người; tinh thần quốc tế trong sáng.",
+              "description": "Đạo đức là gốc của người cách mạng. Những chuẩn mực cơ bản gồm trung với nước, hiếu với dân; cần, kiệm, liêm, chính, chí công vô tư; thương yêu con người; tinh thần quốc tế trong sáng.",
               "meaning": ""
             },
             {

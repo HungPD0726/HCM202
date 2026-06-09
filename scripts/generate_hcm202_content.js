@@ -293,10 +293,10 @@ for (const chapter of chapters) {
 
 const mindmap = {
   id: 'root',
-  name: 'TƯ TƯỞNG HỒ CHÍ MINH\nHCM202',
+  name: 'ĐƯỜNG KÁCH MỆNH\nHCM202',
   level: 0,
   icon: 'assets/vietnam1.png',
-  description: '<b>HCM202 - Tư tưởng Hồ Chí Minh</b> hệ thống hóa những quan điểm cơ bản của Hồ Chí Minh về cách mạng Việt Nam. Nội dung project được sắp xếp theo 6 chương của giáo trình 2019, kết hợp trọng tâm ôn tập trong đề cương lý thuyết.',
+  description: '<b>Đường Kách Mệnh</b> - Hệ thống học tập <b>HCM202 (Tư tưởng Hồ Chí Minh)</b>, hệ thống hóa những quan điểm cơ bản của Hồ Chí Minh về cách mạng Việt Nam. Nội dung project được sắp xếp theo 6 chương của giáo trình 2019, kết hợp trọng tâm ôn tập trong đề cương lý thuyết.',
   vietnam_example: '',
   meaning: 'Mục tiêu học tập: nắm khái niệm, cơ sở hình thành, nội dung cốt lõi và giá trị vận dụng của Tư tưởng Hồ Chí Minh trong học tập, rèn luyện và thực tiễn xây dựng đất nước.',
   children: chapters.map((chapter) => ({
