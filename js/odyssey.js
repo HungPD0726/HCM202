@@ -171,6 +171,16 @@ document.addEventListener('DOMContentLoaded', function () {
       ideology: "Khởi đầu cho hành trình thực tiễn, định hình ý chí tìm con đường độc lập dân tộc tự chủ hoàn toàn mới."
     },
     {
+      id: "singapore",
+      name: "Singapore",
+      shortLabel: "Singapore",
+      year: "1911",
+      lon: 103.8519, lat: 1.3521,
+      image: "assets/bac_ho_singapore.png",
+      desc: "Ngày 9/6/1911, tàu Latouche-Tréville cập cảng Singapore. Đây là thương cảng quốc tế đầu tiên mà Nguyễn Tất Thành đặt chân tới, giúp Người có những nhận thức sơ khởi về thế giới bên ngoài Việt Nam.",
+      ideology: "Mở rộng tầm mắt ra thế giới, củng cố quyết tâm tìm hiểu bản chất của thế giới tư bản hiện đại."
+    },
+    {
       id: "marseille",
       name: "Marseille (Pháp)",
       shortLabel: "Marseille",
@@ -179,6 +189,16 @@ document.addEventListener('DOMContentLoaded', function () {
       image: "assets/bac_ho_marseille.png",
       desc: "Tháng 7/1911, tàu cập cảng Marseille, Pháp. Đây là lần đầu tiên Người đặt chân lên nước Pháp - nước đang cai trị Tổ quốc mình. Người đi sâu vào lòng nước Pháp để tìm hiểu xã hội phương Tây.",
       ideology: "Nhận thức ban đầu: Thực dân Pháp ở chính quốc và thuộc địa có sự khác biệt về tự do dân chủ."
+    },
+    {
+      id: "africa",
+      name: "Châu Phi (Dakar, Senegal)",
+      shortLabel: "Châu Phi",
+      year: "1912",
+      lon: -17.4467, lat: 14.6937,
+      image: "assets/bac_ho_senegal.png",
+      desc: "Trong năm 1912, Người làm việc trên các tàu viễn dương đi qua các nước châu Phi như Senegal, Congo, Dahomey. Chứng kiến cảnh khổ cực của người da đen dưới ách thống trị thực dân, Người nhận ra bản chất tàn bạo chung của chủ nghĩa đế quốc.",
+      ideology: "Nhận thức sâu sắc rằng: Ở đâu bọn thực dân đế quốc cũng tàn bạo, ở đâu giai cấp công nhân và nhân dân lao động cũng bị áp bức."
     },
     {
       id: "boston",
@@ -328,6 +348,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Zoom setup
   var zoom = d3.zoom().scaleExtent([0.8, 8]).on('zoom', function (event) {
     mainG.attr('transform', event.transform);
+    svgEl.style.setProperty('--zoom-k', event.transform.k);
   });
   svg.call(zoom);
 
@@ -428,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Label text under markers
   markers.append('text')
     .attr('class', 'marker-text')
-    .attr('y', 20)
+    .attr('dy', '1.6em')
     .attr('text-anchor', 'middle')
     .text(function (d) { return d.shortLabel || d.name.split(' ')[0]; });
 
@@ -482,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Zoom and pan D3 view to coordinate
     if (autoZoom !== false) {
-      var isClustered = ["nghean", "hue", "phanthiet", "saigon", "pacbo", "thailand", "hongkong", "kunming"].includes(d.id);
+      var isClustered = ["nghean", "hue", "phanthiet", "saigon", "singapore", "pacbo", "thailand", "hongkong", "kunming"].includes(d.id);
       zoomTo(d.x, d.y, isClustered ? 4.5 : (index === 0 ? 1.0 : 2.5));
     }
   }
