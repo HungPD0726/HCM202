@@ -131,6 +131,36 @@ document.addEventListener('DOMContentLoaded', function () {
   // ── Milestone Data ────────────────────────────────────────────────
   var milestones = [
     {
+      id: "nghean",
+      name: "Nam Đàn (Nghệ An)",
+      shortLabel: "Nghệ An",
+      year: "1890 - 1906",
+      lon: 105.69, lat: 18.68,
+      image: "assets/bac_ho_nghe_an.png",
+      desc: "Nơi sinh ra cậu bé Nguyễn Sinh Cung tại quê ngoại làng Chùa (làng Hoàng Trù) và lớn lên ở quê nội làng Sen (làng Kim Liên), Nam Đàn, Nghệ An. Những năm tháng ấu thơ đã bồi đắp lòng yêu nước và ý chí tự lập đầu tiên của Người.",
+      ideology: "Hình thành tình cảm yêu nước sâu sắc từ gia đình khoa bảng có lòng yêu nước và nhân dân lao động lam lũ."
+    },
+    {
+      id: "hue",
+      name: "Huế",
+      shortLabel: "Huế",
+      year: "1906 - 1909",
+      lon: 107.59, lat: 16.46,
+      image: "assets/bac_ho_hue.png",
+      desc: "Nguyễn Tất Thành theo học tại Trường Quốc học Huế. Tại đây, Người tiếp xúc với văn hóa phương Tây, chứng kiến các phong trào chống thuế của nông dân Trung Kỳ (1908) bị đàn áp dã man, bắt đầu nung nấu ý chí đi tìm con đường cứu nước khác.",
+      ideology: "Khởi nguồn nhận thức chính trị phản kháng ách đô hộ của thực dân Pháp và sự bất lực của giai cấp phong kiến."
+    },
+    {
+      id: "phanthiet",
+      name: "Phan Thiết (Bình Thuận)",
+      shortLabel: "Phan Thiết",
+      year: "1910 - 1911",
+      lon: 108.10, lat: 10.93,
+      image: "assets/bac_ho_phan_thiet.png",
+      desc: "Người làm thầy giáo dạy chữ Hán, chữ Quốc ngữ và thể dục tại trường Dục Thanh (Phan Thiết), truyền bá lòng yêu nước cho học sinh. Đầu năm 1911, Người rời Phan Thiết đi vào Sài Gòn chuẩn bị cho chuyến đi ra nước ngoài.",
+      ideology: "Thực hành phương pháp giáo dục tiến bộ, khơi dậy tinh thần dân tộc và ý chí độc lập trong thế hệ trẻ."
+    },
+    {
       id: "saigon",
       name: "Bến Nhà Rồng (Sài Gòn)",
       shortLabel: "Sài Gòn",
@@ -141,12 +171,32 @@ document.addEventListener('DOMContentLoaded', function () {
       ideology: "Khởi đầu cho hành trình thực tiễn, định hình ý chí tìm con đường độc lập dân tộc tự chủ hoàn toàn mới."
     },
     {
+      id: "marseille",
+      name: "Marseille (Pháp)",
+      shortLabel: "Marseille",
+      year: "1911",
+      lon: 5.37, lat: 43.30,
+      image: "assets/bac_ho_marseille.png",
+      desc: "Tháng 7/1911, tàu cập cảng Marseille, Pháp. Đây là lần đầu tiên Người đặt chân lên nước Pháp - nước đang cai trị Tổ quốc mình. Người đi sâu vào lòng nước Pháp để tìm hiểu xã hội phương Tây.",
+      ideology: "Nhận thức ban đầu: Thực dân Pháp ở chính quốc và thuộc địa có sự khác biệt về tự do dân chủ."
+    },
+    {
+      id: "boston",
+      name: "Boston (Hoa Kỳ)",
+      shortLabel: "Boston",
+      year: "1912 - 1913",
+      lon: -71.0589, lat: 42.3601,
+      image: "assets/Bác Hồ ở Boston.jpg",
+      desc: "Cuối năm 1912, Người đến Boston, Mỹ. Tại đây, Người làm phụ bếp tại khách sạn Parker House. Trong thời gian này, Người tìm hiểu Tuyên ngôn Độc lập năm 1776 của nước Mỹ và cuộc đấu tranh giành tự do dân chủ của nhân dân Mỹ.",
+      ideology: "Khảo sát thực tiễn xã hội tư bản Mỹ, tiếp cận tư tưởng tiến bộ và quyền con người trong Tuyên ngôn Độc lập năm 1776 của Hoa Kỳ."
+    },
+    {
       id: "london",
       name: "Luân Đôn (Vương quốc Anh)",
       shortLabel: "Luân Đôn",
       year: "1913 - 1917",
       lon: -0.1278, lat: 51.5074,
-      image: "assets/Bác Hồ ở Boston.jpg",
+      image: "assets/bac_ho_london.png",
       desc: "Tại Anh, Người đã làm nhiều công việc vất vả như cào tuyết, quét dọn, phụ bếp ở khách sạn Carlton. Việc sống và lao động giúp Người thấu hiểu hơn về giai cấp vô sản và nhân dân lao động ở nước bản xứ.",
       ideology: "Giúp củng cố lập trường giai cấp, thấu suốt bản chất bóc lột của chủ nghĩa đế quốc Anh ngay tại trung tâm chế độ."
     },
@@ -161,14 +211,14 @@ document.addEventListener('DOMContentLoaded', function () {
       ideology: "Mốc quan trọng nhất: Chuyển biến lập trường từ chủ nghĩa yêu nước sang chủ nghĩa cộng sản khoa học."
     },
     {
-      id: "moscow",
-      name: "Mát-xcơ-va (Liên Xô)",
-      shortLabel: "Mát-xcơ-va",
+      id: "moscow1",
+      name: "Mát-xcơ-va (Liên Xô) - Lần 1",
+      shortLabel: "Mát-xcơ-va I",
       year: "1923 - 1924",
       lon: 37.6173, lat: 55.7558,
       image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
-      desc: "Người đến Liên Xô học tập lý luận và hoạt động thực tiễn tại Quốc tế Cộng sản, dự Đại hội V Quốc tế Cộng sản, viết nhiều bài báo định hình tư tưởng thuộc địa.",
-      ideology: "Hoàn thiện thế giới quan Mác - Lênin và chuẩn bị hệ thống lý luận giải phóng dân tộc cho cách mạng Việt Nam."
+      desc: "Tháng 6/1923, Người sang Liên Xô hoạt động trong Quốc tế Cộng sản, dự Đại hội V Quốc tế Cộng sản và học tập tại trường Đại học Phương Đông, viết nhiều bài báo lý luận về cách mạng thuộc địa.",
+      ideology: "Hoàn thiện lý luận giải phóng dân tộc dựa trên chủ nghĩa Mác - Lênin, gắn phong trào giải phóng thuộc địa với cách mạng vô sản thế giới."
     },
     {
       id: "guangzhou",
@@ -181,6 +231,16 @@ document.addEventListener('DOMContentLoaded', function () {
       ideology: "Chuẩn bị về mặt chính trị, tư tưởng và tổ chức cán bộ, định hình vai trò hạt nhân lãnh đạo của Đảng."
     },
     {
+      id: "thailand",
+      name: "Xiêm (Thái Lan)",
+      shortLabel: "Xiêm",
+      year: "1928 - 1929",
+      lon: 100.5018, lat: 13.7563,
+      image: "assets/bac_ho_thailand.png",
+      desc: "Năm 1928, Người sang Xiêm (Thái Lan) để xây dựng phong trào cách mạng trong kiều bào Việt Nam. Dưới tên gọi Thầu Chín, Người tuyên truyền, củng cố tình đoàn kết Việt - Xiêm và chuẩn bị lực lượng cách mạng.",
+      ideology: "Xây dựng khối đại đoàn kết dân tộc và liên minh quốc tế rộng rãi, chuẩn bị chuyển giao cán bộ về nước."
+    },
+    {
       id: "hongkong",
       name: "Hồng Kông",
       shortLabel: "Hồng Kông",
@@ -189,6 +249,26 @@ document.addEventListener('DOMContentLoaded', function () {
       image: "assets/Nhà báo cách mạng quốc tế Nguyễn Ái Quốc.jpg",
       desc: "Từ ngày 6/1 đến 7/2/1930, Người chủ trì Hội nghị thống nhất các tổ chức cộng sản trong nước tại Cửu Long (Hồng Kông) để thành lập Đảng Cộng sản Việt Nam.",
       ideology: "Kết quả tất yếu của quá trình kết hợp chủ nghĩa Mác - Lênin với phong trào yêu nước và phong trào công nhân."
+    },
+    {
+      id: "moscow2",
+      name: "Mát-xcơ-va (Liên Xô) - Lần 2",
+      shortLabel: "Mát-xcơ-va II",
+      year: "1934 - 1938",
+      lon: 42.0, lat: 53.5,
+      image: "assets/bac_ho_lenin_school.png",
+      desc: "Tháng 6/1934, Người trở lại Liên Xô, học tập tại Trường Quốc tế Lênin và làm nghiên cứu sinh tại Viện Nghiên cứu các vấn đề dân tộc và thuộc địa. Đây là giai đoạn Người kiên định giữ vững đường lối cách mạng đúng đắn trước những thử thách chính trị.",
+      ideology: "Bảo vệ lập trường cách mạng dân tộc tự chủ sáng tạo, kiên trì học tập nâng cao lý luận chính trị chuẩn bị về nước lãnh đạo trực tiếp."
+    },
+    {
+      id: "kunming",
+      name: "Côn Minh (Trung Quốc)",
+      shortLabel: "Côn Minh",
+      year: "1938 - 1940",
+      lon: 102.71, lat: 25.04,
+      image: "assets/bac_ho_kunming.png",
+      desc: "Cuối năm 1938, Người từ Liên Xô về Trung Quốc. Tại Côn Minh và các vùng biên giới, Người chớp thời cơ Thế chiến thứ hai bùng nổ, bắt liên lạc với tổ chức Đảng trong nước để chuẩn bị trở về trực tiếp chỉ đạo cách mạng.",
+      ideology: "Nhạy bén dự đoán thời cơ chiến lược cách mạng thuộc địa, xúc tiến nhanh quá trình trở về Tổ quốc."
     },
     {
       id: "pacbo",
@@ -204,8 +284,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Projection setup for detailed geographic world map
   var projection = d3.geoMercator()
-    .scale(300)
-    .center([55, 34])
+    .scale(160)
+    .center([20, 30])
     .translate([500, 260]);
 
   var geoPath = d3.geoPath().projection(projection);
@@ -402,7 +482,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Zoom and pan D3 view to coordinate
     if (autoZoom !== false) {
-      zoomTo(d.x, d.y, index === 0 ? 1.0 : 2.5);
+      var isClustered = ["nghean", "hue", "phanthiet", "saigon", "pacbo", "thailand", "hongkong", "kunming"].includes(d.id);
+      zoomTo(d.x, d.y, isClustered ? 4.5 : (index === 0 ? 1.0 : 2.5));
     }
   }
 
